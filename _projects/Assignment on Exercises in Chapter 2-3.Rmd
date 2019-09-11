@@ -1,0 +1,238 @@
+---
+title: "Assignment on Exercises in Chapter 1-3"
+author: "Alex"
+date: "11/09/2019"
+output: html_document
+---
+# Chapter 2 Exercise 2.1
+```{r setup, include=FALSE, warning=FALSE}
+#Question a 
+#When a = 2.3
+a <- 2.3
+    ((6*a)+42)/(3^(4.2-3.62))
+#Question b
+    -4^2+2
+#Question c
+    sqrt(mean(25.2+15+16.44+15.3+18.6))
+#Question d
+    exp(0.3)
+#Question e
+    log(x=1.349859)
+#Question f
+    4.235463e-09
+    ```
+
+#Exercise 2.2
+```{r}
+#Question a
+ P <- 3^2*4^(1/8)
+    P
+#Question b 
+    P <- P/2.33
+    P
+#Question c
+    Q <- -8.2*10^-13
+    Q
+#Question d
+    P*Q
+```
+#Exercise 2.3
+```{r}
+#Question a
+aseq <- seq (from=5,to=-11,by=-0.3)
+aseq
+
+#Question b
+
+bseq <- seq(from=-11,to=5,by=0.3)
+bseq
+
+#Question c
+V <- rep(x=c(-1,3,-5,7,-9),times=2, each=10)
+V
+#Question c sorted value
+S <- sort(x=V,decreasing=TRUE)
+S
+#Question d
+#i
+dseq <-seq(from=6,to=12)
+dseq
+#ii
+dseqs <-rep(x=c (5.3), times=3)
+dseqs
+#iii
+d <- (x=-3)
+d
+#iv
+dseq2 <- seq(from=102,to=(length((S))),length.out = 9)
+dseq2
+
+dseq3 <- c(dseq,dseqs,d,dseq2)
+dseq3
+#Question e
+length (dseq3)
+```
+
+#Exercies 2.4
+```{r}
+#Question a
+E1 <- seq(from=3, to=6, length.out= 5)
+E1
+E2 <- rep(x=c (2,5.2,-33), times= 3)
+E2
+E3 <- (7/42)+2
+E3
+#Question b
+V1 <- (x=c(E1,E2,E3))
+V1
+#Question C
+S <- V1[1]
+S
+S2 <- V1[15]
+S2
+#Question d
+S3 <- (x=c(S,S2))
+S3
+#Question e
+S4<- V1 [-1][-14]
+S4
+V2 <- c(S3,S4)
+V2
+#Question f
+V1 <- sort(x=c(V1, decreasing =FALSE))
+V1
+Z <- V1[13:1]
+Z
+#Question g
+Em3 <- rep(S4[3], times=3)
+Em3
+Em6 <- rep(S4[6], times=4)
+Em6
+Em <- rep(S4[10], times=1)
+Em
+Vg <-c(Em3,Em6,Em)
+Vg
+#Question h
+Vh <- V1
+Vh
+Vh [c(1,5,6,7,13)] <- c(99,98,97,96,95)
+Vh
+```
+
+#Exercise 2.5
+```{r}
+#Question a
+V<- c(2,0.5,1,2,0.5,1,2,0.5,1)
+V
+V1 <- V[c(1:9)] <- c(1,1,1,1,1,1,1,1,1)
+V1
+#Question b
+C <- c(5/9*(45-32),5/9*(77-32),5/9*(20-32),5/9*(19-32),5/9*(101-32),5/9*(120-32),5/9*(212-32))
+C
+#Quesition c
+Veven <- c(2,4,6)*1
+Veven
+Vodd <- c(1,2)*2
+Vodd
+#Question d
+Vre <- c(Vodd,Veven)
+Vre
+Vre [c(2,3,4,5)]<- c(-0.1,-100,-0.1,-100)
+Vre
+```
+
+#Chapter 3 Exercise 3.1
+```{r}
+#Question a
+Ma <- matrix(data=c(4.3, 3.1, 8.2, 8.2, 3.2, 0.9, 1.6, 6.5), nrow =4, ncol =2)
+Ma
+#Question b
+Mb <- Ma[-1]
+Mb
+dim(Mb)
+#question c
+Ma[,2] <- c(0.9,1.6,3.2,6.5)
+Ma
+#Question d
+Md <- Ma [-4,-1]
+Md
+#Question e
+Me <- matrix(data=c(Md))
+Me
+#Question f
+Mf <- Ma[c(3,4),1:2]
+Mf
+```
+
+#Exercise 3.2
+```{r}
+#Question a
+M2 <- matrix(data=c(10,30,50,20,40,60), nrow =3, ncol =2)
+M2
+M1 <- matrix(data=c(1,2,7,2,4,6), nrow =3, ncol =2)
+M1
+RM <- M1-M2
+RM
+#Question b
+d <- 2/7*RM
+d
+AM <- matrix(data=c(1,2,7))
+AM
+
+BM <- matrix(data=c(3,4,8))
+BM
+
+CM <- AM*BM
+CM
+
+BT <- t(BM)
+BT
+#Question C
+A <-matrix(data=c(2,0,0,0,0,3,0,0,0,0,5,0,0,0,0,-1), nrow= 4, ncol = 4)
+A
+A1 <- solve(A)
+A1
+B <- diag(4)
+B
+Non <- A1*A-B
+Non
+dim(Non)
+```
+
+#Exercise 3.3
+```{r}
+#Question a
+Arr <- seq(from=4.8, to=0.1, length.out=8)
+Arr
+Arr3 <- matrix(data=c(4.8000000,4.1285714,3.4571429,2.7857143,2.1142857,1.4428571,0.7714286,0.1000000), nrow =4, ncol =2)
+Arr3
+#Question b
+Arrb <- array(data=(Arr3),dim=c(4,2,6))
+Arrb
+
+Arrc <-Arrb[4,2,]
+Arrc
+
+Arrd <-Arrb[1,2,]
+Arrd
+ArrR <- matrix(data=c(Arrc,Arrd))
+ArrR
+#Question C
+Arr4 <- array(data=rep(Arr,times=4))
+Arr4
+
+Arr4f <- array(Arr4,dim=c(2,2,2,3))
+Arr4f
+#Question e
+Arre <- array (data=(Arr3),dim=c(4,2,5))
+Arre
+#question f
+Arre[2,2,1] <- -99
+Arre[4,2,1] <- -99
+Arre[2,2,3] <- -99
+Arre[4,2,3] <- -99
+Arre[2,2,5] <- -99
+Arre[4,2,5] <- -99
+Arre
+```
+
