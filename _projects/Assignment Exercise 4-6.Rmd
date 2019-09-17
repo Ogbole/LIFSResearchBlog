@@ -1,0 +1,417 @@
+---
+title: "Assignment on Exercise 4-6"
+author: "Alex"
+date: "14/09/2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+# Chapter 4 Exercise 4.1
+```{r setup, include=FALSE}
+# Question a
+Va <- c(6,9,7,3,6,7,9,6,3,6,6,7,1,9,1)
+Va
+# i. Those equal to 6
+Eql <- Va == 6
+Eql
+#ii Those greater than or equal to 6
+EqG <- Va >= 6
+EqG
+#iii Those less than 6+2
+Less <- Va < (6+2)
+Less
+#iv Those not equal to 6
+Neql <- Va != 6
+Neql
+
+# Question b
+Vb <- Va[-1:-3]
+Vb
+Arr <- array(data = Vb, dim = c(2,2,3))
+Arr
+
+# i. Those less than or equal to 
+LAr <- Arr <= (6/2) + 4
+LAr
+#ii. Those less than or equal to after element increased by 2
+Inc2 <- Arr + 2
+Inc2
+LAr2 <- Inc2 <= (6/2) + 4
+LAr2
+
+# Question c
+# Confirm specific location of elements equal to 0 in I10
+I10 <- diag(10)
+I10
+Zer <- which(I10==0)
+Zer
+
+#Question d
+P <- any(Arr == TRUE)
+P
+
+Q <- all(Arr == TRUE)
+Q
+# Question e
+D <- diag(x=I10)
+D
+E <- any(D==TRUE)
+E
+```
+
+# Exercise 4.2
+```{r}
+# Question a
+foo <- c(7,1,7,10,5,9,10,3,10,8)
+foo
+A <- foo[foo > 5|foo == 2]
+A
+
+# Question b
+bar <- c(8,8,4,4,5,1,5,6,6,8)
+bar
+E <- bar[bar<6|bar==6 & bar!=4]
+E
+# Question c
+C <- A & E
+C
+# Question d
+baz <- foo + bar
+baz
+# i
+bazE <- baz[baz >= 14 & baz!=15]
+bazE
+#ii
+V <- baz[baz/foo]
+V
+VE <- V[V > 4| V <= 2]
+VE
+# Question e
+A2 <- foo[foo > 5||foo == 2]
+E2 <- bar[bar<6|bar==6 && bar!=4]
+C2 <- A && E
+bazE2 <- baz[baz >= 14 && baz!=15]
+VE2 <- V[V > 4|| V <= 2]
+
+A2
+E2
+C2
+bazE2
+VE2
+
+```
+
+#Exercise 4.3
+```{r}
+# Question a
+foo <- c(7,5,6,1,2,10,8,3,8,2)
+#i elements greater or equal  to 5
+bar <- foo[(foo > 5)| (foo == 5)]
+bar
+
+#ii left over
+Res <- foo[foo<=5]
+Res
+# Question b
+baz <- matrix(bar,nrow = 2,ncol = 3)
+baz
+#i. 
+baz[c(1,2),3] <- baz[1,2] ^2
+baz
+#ii 
+baz[c(1,2),3] <- 25 
+baz
+# Question c
+qux <- array(c(10,5,1,4,7,4,3,3,1,3,4,3,1,7,8,3,7,3), dim = c(3,2,3))
+qux
+#i identify dim-specific index positions
+di <- which(qux== 3|qux ==4)
+di
+#ii Replace all elements in qux
+qux[qux< 3 | qux >=7]<- 100
+qux
+
+# Question d
+#i extract second value
+ex <- foo[c(T,F)]
+ex
+ex2 <- foo[c(0,1)]
+ex2
+Explanation<-(" R returns 7 the first second element only The extraction is limited to only one, this is because it does not recursively extract elements but only once per time.")
+Explanation
+```
+
+#Exercise 4.4
+```{r}
+# Question a
+cat("\"The quick brown fox\n\    jumped over\n\tthe lazy dogs\"")
+# Question b
+num1 <- 4
+num2 <- 0.75
+paste("The result of multiplying",num1,"by",num2, "is", num1 * num2)
+# Question c
+R <- "/Users/tdavies/Documents/RBook/"
+sub(pattern = "tdavies", replacement = "aogbole", x=R)
+# Question d
+bar <- "How much wood could a woodchuck chuck"
+#i store a new string
+sub(pattern = "How much wood could a woodchuck chuck", replacement = "if a woodchuck could chuck wood", x=bar )
+bar
+#ii replace all wood instances with metal
+gsub(pattern = "wood", replacement = "metal",x=bar)
+
+# Question e
+two <- "Two 6-packs for $12.99"
+#i . 
+substr(x=two,start = 5,stop = 10)
+#ii
+substr(x=two,start = 16,stop = 21)<- "$10.99"
+two
+```
+
+#Exercise 4.5
+```{r}
+# Question a
+sex.char <- c("M","M","M","M","M","M","M","M","M","M","M","F","F","F","F","F","F","F","F")
+party.char <- c("National",
+"Labour", "Greens", "Maori", "Other")
+
+# Question b
+sex.char.fac<- factor(x=sex.char,ordered = TRUE)
+sex.char.fac
+party.char.fac <- factor(x=party.char ,ordered = TRUE)
+party.char.fac
+Exp<-(" It does not make sense as the ordering is based on alphabetical arrangement rather than the unique entity they represent")
+Exp
+# Question c
+sex.char.fac<- factor(x=sex.char,ordered = FALSE)
+sex.char.fac
+party.char.fac <- factor(x=party.char ,ordered = FALSE)
+#i.factor vector for only male participants
+party.char.fac[sex.char.fac=="M"]
+#ii Returns genders who choose National
+sex.char.fac[party.char.fac=="National"]
+# Question d
+newparty<- c("National","Maori","Maori","Labour","Greens","Labour")
+newsex<- c("M","M","F","F","F","M")
+sex2<- factor(x=c(newsex),levels=levels(sex.char.fac), ordered=TRUE)
+sex2
+party2<- factor(x=c(newparty),levels=levels(party.char.fac), ordered=TRUE)
+party2
+c(sex.char.fac,sex2)
+c(party.char.fac,party2)
+# To order combined gener
+levels(sex.char.fac)[c(sex.char.fac,sex2)]
+sexcomb <- levels(sex.char.fac)[c(sex.char.fac,sex2)]
+sexcomb.fac <- factor(x=sexcomb,levels=levels(sex.char.fac),ordered=TRUE)
+sexcomb.fac
+# To order combined party
+partycomb <- levels(party.char.fac)[c(party.char.fac,party2)]
+partycomb.fac <- factor(x=partycomb,levels=levels(party.char.fac),ordered=TRUE)
+partycomb.fac
+
+# Question e
+Conf<- c(93, 55, 29, 100,
+52, 84, 56, 0, 33, 52, 35, 53, 55, 46, 40, 40, 56, 45, 64, 31, 10, 29, 40,
+95, 18, 61)
+Per<-c(0,30,70,100)
+lab<- c("Low","Moderate","High")
+cut(x=Conf,breaks = Per,right = F,include.lowest = T, labels = lab)
+# Question f
+Conf.fac<- factor(x=Conf,ordered = TRUE)
+Conf.fac
+
+#i.Levels of individuals originally identified with Labour
+Conf.fac[party.char.fac=="Labour"]
+#ii levels of individuals identified with National
+Conf.fac[party.char.fac=="National"]
+Notice <- ("I noticed that there are more records for National than labour which is 6:5 respectively ")
+```
+
+#Chapter 5 Exercise 5.1
+```{r}
+#Question a
+num<- seq(from=-4,to=4,length= 20)
+num
+LogVec<-matrix(c(F,T,T,T,F,T,T,F,F),nrow=3, ncol=3)
+LogVec
+CharVec<-c("don", "quixote")
+CharVec
+FacVec<- factor(x=c("LOW","MED","LOW","MED","MED","HIGH"))
+FacVec
+L <- list(num,LogVec,CharVec,FacVec)
+L
+
+# i Extract elements nrow(2:1), ncol(2:3)
+L[[2]][2:1,2:3]
+
+#ii Sub to overwrite quixote and don
+
+L[[3]][1]<-sub(pattern="don", replacement="Don",x=L[[3]][1])
+L[[3]][2]<-sub(pattern="quixote", replacement="Quixote",x=L[[3]][2])
+L[[3]]
+cat("\"Windmills! ATTACK!\"\n"," ","", "-\\" ,L[[3]],"/-")
+#iii values greater than 1
+Gval <- L[[1]][L[[1]]>1]
+Gval
+#iv using which factor vector assigned to MED
+which(x=L[[4]]=="MED")
+#Question b
+
+newlist <- list(facs=L[[4]],nums=c(3,2.1,3.3,4,1.5,4.9),oldlist=L[1:3])
+newlist
+#i Extract elements of facs greater = 3
+Egreater <- newlist$facs[][newlist$nums>= 3]
+Egreater
+#ii add new member
+newlist$flags <- rep(x=newlist$oldlist[[2]][,3], times=2)
+newlist$flags
+#iii extract the entries of nums =false
+entries<- newlist$nums[][!newlist$flags]
+entries
+#iv Overwrite oldlist
+newlist$oldlist[[3]]<- "Don Quixote"
+```
+# Exercise 5.2
+
+```{r}
+#Question a
+dframe <- data.frame(person=c("Stan","Francine","Steve","Roger","Hayley","Klaus"),
+         sex=factor(x=c("M","F","M","M","F","M")),   
+         funny=factor(x=c("High","Med","Low","High","Med","Med"),
+                                   levels=c("Low","Med","High")),stringsAsFactors=FALSE)
+dframe
+
+# Question b
+dframe$age <- c(41,41,15,1600,21,60)
+dframe
+
+# Question c
+dframe <- dframe[,c(1,4,2,3)]
+dframe
+# Question d
+mydata <- data.frame(person=c("Peter","Lois","Meg","Chris","Stewie","Brian"),
+age=c(42,40,17,14,1,7),sex=factor(x=c("M","F","F","M","M", "M")),funny=factor(x=c("High","High","Low","Med","High","Med")), age.mon=c(504,480,204,168,12,84),stringsAsFactors=FALSE)
+mydata
+mydata2 <- mydata[,-5] 
+mydata2
+
+# Question e
+mydataframe <- rbind(mydata2,dframe)
+mydataframe
+# Question f
+mydataframe[mydataframe$sex=="F"&(mydataframe$funny=="Med"|mydataframe$funny=="High"),c("person","age")]
+
+# Question g
+mydataframe[substr(x=mydataframe$person,start=1,stop=1)=="S",]
+
+```
+
+
+#Chapter 6 Exercise 6
+```{r}
+#Question 6.1
+# Question a
+foo <- c(13563,-14156,-14319,16981,12921,11979,9568,8833,-12968,8133)
+#(i)output not finite
+foo[is.finite(foo^75)]
+#(ii)ex lude negative infinity
+foo[-which(foo^75==-Inf)]
+# Question b
+bar <- matrix(c(77875.4,-35466.25,-39803.81,27551.45,-73333.85,55976.34,23764.3,36599.69,76694.82,-36478.88,-70585.69,47032),nrow=3,ncol=4)
+#(i)is NaN 
+which(is.nan(bar^65/Inf),arr.ind=T)
+#(ii)Not NaN
+bar[!is.nan(bar^67+Inf)]
+bar[bar^67!=-Inf]
+#(iii)
+bar[bar^67==-Inf|is.finite(bar^67)]
+```
+
+#Exercise 6.2
+```{r}
+# Question a
+foo <- c(4.3,2.2,NULL,2.4,NaN,3.3,3.1,NULL,3.4,NA)
+#(i) the length of foo
+length(x=foo)
+#(ii) not result in 4 and 8
+which(x=is.na(x=foo))
+#(iii)locations of two Null values
+is.null(foo)
+#(iv)
+is.na(x=foo[8])+4/NULL
+#Question b
+bar <- list(c(7,7,NA,3,NA,1,1,5,NA))
+#(i)
+names(bar) <- "alpha"
+#(ii)
+is.null(x=bar$beta)
+#(iii)
+bar$beta <- which(x=is.na(x=bar$alpha))
+bar
+
+```
+
+#Exercise 6.3
+```{r}
+# Question a
+#(i)
+foo <- array(data=1:36,dim=c(3,3,4))
+foo
+class(foo)
+attributes(foo) 
+comment <- ("It is implicit")
+#(ii)
+bar <- as.vector(foo)
+bar
+class(bar)
+attributes(bar)
+comment2 <- ("It is implicit")
+#(iii)
+baz <- as.character(bar)
+baz
+class(baz)
+attributes(baz)
+comment <- ("It is implicit")
+#(iv)
+qux <- as.factor(baz)
+qux
+class(qux)
+attributes(qux)
+comment3 <- ("It is explicit")
+#(v)
+quux <- bar+c(-0.1,0.1)
+quux
+class(quux)
+attributes(quux) 
+comment <- ("It is implicit")
+#(b)
+foo.sum <- is.numeric(foo)+is.integer(foo)
+bar.sum <- is.numeric(bar)+is.integer(bar)
+baz.sum <- is.numeric(baz)+is.integer(baz)
+qux.sum <- is.numeric(qux)+is.integer(qux)
+quux.sum <- is.numeric(quux)+is.integer(quux)
+Fac <- factor(x=c(foo.sum,bar.sum,baz.sum,qux.sum,quux.sum),levels=c(0,1,2))
+Fac
+as.numeric(Fac)
+#(c)
+matx <- matrix(data=2:13,nrow=3,ncol=4)
+matx
+as.character(as.vector(t(matx)))
+#(d)
+matd <- cbind(c(34,23,33,42,41),c(0,1,1,0,0),c(1,2,1,1,2))
+matd
+#(i)
+matd <- as.data.frame(matd)
+matd
+#(ii)
+matd[,2] <- as.logical(matd[,2])
+matd
+#(iii)
+matd[,3] <- as.factor(matd[,3])
+matd
+matd$V3
+```
+
