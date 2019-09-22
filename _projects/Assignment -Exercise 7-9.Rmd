@@ -1,0 +1,120 @@
+---
+title: "Assignment Exercise 7-9"
+author: "Alex"
+date: "19/09/2019"
+output: html_document
+---
+##Chapter 7 Exercise 7
+```{r}
+# Exercise 7.1
+# Question a
+plot(-3:3,7:13,type="n",xlab="",ylab="",main="")
+abline(h=c(7,13),lty=2,lwd=4,col=8)
+abline(v=c(-3,3),lty=2,lwd=4,col=8)
+arrows(x0=c(-2.5,-2.5,-2.5,2.5,2.5,2.5),y0=c(7.5,10.0,12.5,7.5,10.0,12.5),x1=c(-1,-1,-1,1.0,1.0,1.0),y1=c(9.5,10.0,10.5,9.5,10.0,10.5))
+text(x=0,y=10,labels="SOMETHING\nPROFOUND")
+
+# Question b
+Weight <- c(55,85,75,42,93,63,58,75,89,67)
+Height <- c(161,185,174,154,188,178,170,167,181,178)
+Sex <- c("female","male","male","female","male","male","female","male","male","female")
+plot(Weight,Height,type="n",xlab="Weight (kg)",ylab="Height (cm)",main="Weight against Height Record of 10 Hallym Students")
+points(Weight[Sex=="male"],Height[Sex=="male"],pch=15, col=4)
+points(Weight[Sex=="female"],Height[Sex=="female"],pch=6,col=2)
+legend("bottomright",legend=c("male","female"),pch=c(15,6),col=c(4,2))
+
+# Exercise 7.2 
+# Task with ggplot2
+Weight <- c(55,85,75,42,93,63,58,75,89,67)
+Height <- c(161,185,174,154,188,178,170,167,181,178)
+Sex <- factor(c("female","male","male","female","male","male","female","male","male","female"))
+library(ggplot2)
+qplot(Weight,Height,color=Sex,shape=Sex,xlab="Weight (kg)",ylab="Height (cm)",main="Weight against Height Record of 10 Hallym Students") + geom_point(size=4)
+```
+
+## Chapter 8 Exercise 8
+
+```{r }
+## Exercise 8.1 
+
+# Question a
+#(i)Writing the file q5.txt
+getwd()
+write.table(x=quakes[quakes$mag>=5,],file="C:/Users/alexo/Documents/q5.txt",sep="!",row.names=F)
+#(ii) Reading the file
+q5.dframe <- read.table(file="C:/Users/alexo/Documents/q5.txt",sep="!",header=T)
+q5.dframe
+# Question b
+#Installing car package, library car and accessing Duncan data set
+install.packages("car")
+library("car")
+data(Duncan)
+#(i) Ploting Education against Income 
+plot(Duncan$education[Duncan$prestige<=80],Duncan$income[Duncan$prestige<=80],xlim=c(0,100),ylim=c(0,100),xlab="Education",ylab="Income")
+points(Duncan$education[Duncan$prestige>80],Duncan$income[Duncan$prestige>80],pch=20,col="blue")
+#(ii) adding legend and saving image
+png("C:/Users/alexo/Documents/duncan.png",width=500,height=500)
+plot(Duncan$education[Duncan$prestige<=80],Duncan$income[Duncan$prestige<=80],xlim=c(0,100),ylim=c(0,100),xlab="Education",ylab="Income")
+points(Duncan$education[Duncan$prestige>80],Duncan$income[Duncan$prestige>80],pch=20,col="blue")
+legend("bottomright",legend=c("Prestige > 80","Prestige <= 80"),pch=c(20,1),col=c("blue","black"))
+dev.off()
+# Question c
+exer <- list(quakes,q5.dframe,Duncan)
+#(i) Writing Exercise8-1.txt list
+dput(x=exer,file="C:/Users/alexo/Documents/Exercise8-1.txt")
+#(ii) Reading Exercise8_1.txt
+list.of.dataframes <- dget("C:/Users/alexo/Documents/Exercise8-1.txt")
+list.of.dataframes
+# Question d
+# Saving plot 
+x <- 1:20
+y <- c(-1.49,3.37,2.59,-2.78,-3.94,-0.92,6.43,8.51,3.41,-8.23,-12.01,-6.58,2.87,14.12,9.63,-4.58,-14.78,-11.67,1.17,15.62)
+ptype <- rep(NA,length(x=x))
+ptype[y>=5] <- "too_big"
+ptype[y<=-5] <- "too_small"
+ptype[(x>=5&x<=15)&(y>-5&y<5)] <- "sweet"
+ptype[(x<5|x>15)&(y>-5&y<5)] <- "standard"
+ptype <- factor(x=ptype)
+library(ggplot2)
+qplot(x,y,color=ptype,shape=ptype) + geom_point(size=4) + geom_line(mapping=aes(group=1),color="black",lty=2) + geom_hline(mapping=aes(yintercept=c(-5,5)),color="red") + geom_segment(mapping=aes(x=5,y=-5,xend=5,yend=5),color="red",lty=3) + geom_segment(mapping=aes(x=15,y=-5,xend=15,yend=5),color="red",lty=3)
+ggsave(filename="C:/Users/alexo/Documents/sweetqplot.tiff")
+```
+
+## Chapter 9 Exercise 9
+
+```{r}
+# Exercise 9.1
+# Question a
+ls("package:methods")[1:20]
+length(ls("package:methods"))
+# Question b
+#(i)
+environment(read.table)
+#(ii)
+environment(data)
+#(iii)
+environment(matrix)
+#(iv)
+environment(jpeg)
+# Question c
+any(ls("package:graphics")=="smoothScatter")
+
+#Exercise 9.2
+# Question a
+seq(-4,4,0.2)
+# Question b
+#(i)
+array(8:1,dim=c(2,2,2)) # 'data' positional, 'dim' exact.
+#(ii)
+rep(1:2,3) #POSITIONAL
+#(iii)
+seq(from=10,to=8,length=5) # 'from' and 'to' exact, 'length.out' partial.
+#(iv)
+sort(decreasing=T,x=c(2,1,1,2,0.3,3,1.3)) # EXACT
+#(v)
+which(matrix(c(T,F,T,T),2,2)) # POSITIONAL
+#(vi)
+which(matrix(c(T,F,T,T),2,2),a=T) # 'x', 'data', 'nrow', 'ncol' positional, 'arr.ind' partial
+# Question c
+# 'pch', 'lwd', 'lty' and 'col' are part of the ellipsis.
+```
