@@ -1,0 +1,264 @@
+---
+title: "Exercise Assignment 13-15"
+author: "Alex"
+date: "05/10/2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+## Chapter 13 Exercise 13
+```{r}
+
+# Exercise 13.1 
+# Question a
+# i numeric-discrete
+# ii categorical-ordinal
+# iii numeric-continuous
+# iv categorical-ordinal
+# v categorical-nominal
+# vi numeric-continuous
+
+# Question b
+# i Sample statistic. Population parameter here describes the proportion of NZers who own a gaming console.
+# ii Sample statistic. Population parameter here describes the average number of blemishes on the hoods of all cars at No Dodgy Carz yard.
+# iii Population parameter.
+# iv Population parameter.
+# v Sample statistic. Population parameter here describes average number of times per day a vending machine is used in a year
+
+## Exercise 13.2
+# Question a
+data("quakes")
+round(mean(quakes$depth>=300),2)
+# Question b
+mean(quakes$mag[quakes$depth>=300])
+median(quakes$mag[quakes$depth>=300])
+# Question c
+data("chickwts")
+for(i in levels(chickwts$feed)){
+  cat(i,": ",round(mean(chickwts$weight[chickwts$feed==i]),1)," grams\n",sep="")
+}
+# Question d 
+#The two variables types in InsectSprays are count: numeric-discrete; spray: categorical-nominal
+# Question e
+data("InsectSprays")
+Ctab <- table(InsectSprays$count)
+Ctab[Ctab==max(Ctab)]
+# Question f
+tapply(InsectSprays$count,INDEX=InsectSprays$spray,FUN=sum)
+# Question g
+for(i in levels(InsectSprays$spray)){
+  cat("Spray ",i,"; at least 5 bugs: ",round(mean(InsectSprays$count[InsectSprays$spray==i]>=5)*100,0),"% \n",sep="")
+}
+# Question h
+tapply(InsectSprays$count,INDEX=InsectSprays$spray,FUN=function(x) round(mean(x>=5)*100,0))
+
+## Exercise 13.3 
+
+# Question a
+quantile(chickwts$weight,c(0.1,0.3,0.9))
+chickvars <- tapply(chickwts$weight,INDEX=chickwts$feed,FUN=var)
+chickvars[chickvars==max(chickvars)]
+# Question b
+# i
+IQR(quakes$depth)
+# ii
+summary(quakes$mag[quakes$depth>=400]) # Magnitudes at <400 have a similar amount of spread as those at >=400 (and an equivalent IQR of 0.5), but are centered at slightly higher values.
+# iii
+dmin <- min(quakes$depth)
+dmax <- max(quakes$depth)
+depthcat <- cut(quakes$depth,breaks=seq(dmin,dmax,length=5),include.lowest=TRUE,right=FALSE)
+levels(depthcat)
+# iv
+tapply(quakes$mag,INDEX=depthcat,FUN=mean)
+tapply(quakes$mag,INDEX=depthcat,FUN=sd)
+# v
+tapply(quakes$mag,INDEX=depthcat,FUN=quantile,prob=0.8)
+
+## Exercise 13.4
+# Question a
+w <- c(55,85,75,42,93,63,58,75,89,67)
+h <- c(161,185,174,154,188,178,170,167,181,178)
+cor(w,h)
+# Question b
+# i
+data("mtcars")
+mtcars
+?mtcars
+# ii )
+plot(mtcars$hp,mtcars$qsec,xlab="horsepower",ylab="1/4 mile time")
+cor(mtcars$hp,mtcars$qsec)
+# iii
+tran <- factor(mtcars$am,labels=c("auto","manual"))
+# iv
+library(ggplot2)
+qplot(mtcars$hp,mtcars$qsec,col=tran,xlab="horsepower",ylab="1/4 mile time")
+# v
+cor(mtcars$hp[tran=="manual"],mtcars$qsec[tran=="manual"])
+cor(mtcars$hp[tran=="auto"],mtcars$qsec[tran=="auto"]) 
+# Separated by transmission type, correlations are more extreme than when pooled. Manual cars have a slightly more extreme negative correlation between the two variables than automatic cars.
+# Question c
+# i
+sunchicks <- chickwts$weight[chickwts$feed=="sunflower"]
+plot(sunchicks,rep(0,length(sunchicks)),yaxt="n",bty="n",xlab="sunflower chick weights",ylab="")
+abline(h=0,col="gray",lty=2)
+# ii
+sd(sunchicks)
+IQR(sunchicks)
+# iii
+sd(sunchicks[-which(sunchicks==min(sunchicks))])
+IQR(sunchicks[-which(sunchicks==min(sunchicks))]) 
+# Both measures of spread decrease with the deletion of the lowest weight; though the sd is affected more than the IQR...
+
+```
+
+## Chapter 14 Exercise 14.1 
+```{r}
+
+
+library("GGally")
+data("InsectSprays")
+# Question a
+Hcounts <- hist(InsectSprays$count)
+Hcounts
+# Question b
+Totalinst <- levels(InsectSprays$spray)
+Totalinst
+Insectcount <- tapply(InsectSprays$count,INDEX=InsectSprays$spray,FUN=sum)
+barplot(Insectcount,names.arg=Totalinst,xlab="Spray Type",ylab="Total number of insects",main="A Barplot of total number of insects\naccording to each spray ",col="blue")
+#Pie Chart of totals
+pie(Insectcount,labels=Totalinst,main="A pie chart for total number of insects\naccording to each spray type")
+# Question c
+library("ggplot2")
+qplot(InsectSprays$spray,InsectSprays$count,geom="boxplot",xlab="Spray",ylab="Total number of insects",main="Boxplots of insect counts\naccording to spray type")
+# Question d
+data("USArrests")
+#using ggplot2 functionality to genarate population historgram
+qplot(USArrests[,3],geom="blank",main="United States urban-based population",xlab="proportion urban") + geom_histogram(color="brown",fill="gray",breaks=seq(0,100,10),closed="right") + geom_vline(mapping=aes(xintercept=c(quantile(USArrests[,3],0.25),median(USArrests[,3]),quantile(USArrests[,3],0.75)),linetype=factor(c("First Quart","Median","Third Quart"))),show.legend=TRUE) + scale_linetype_manual(values=3:5) + labs(linetype="")
+# Question e
+USarrdata <- t(as.matrix(USArrests[,-3]))
+barplot(USarrdata,names.arg=state.abb,horiz=T,las=1,legend.text=c("Murder","Rape","Assault"),main="Record of United States arrests per 100000\n for serious crime by state ")
+# Question f
+#Define new vector urbancat
+urbancat <- rep(1,50)
+urbancat[USArrests$UrbanPop<=median(USArrests$UrbanPop)] <- 0
+urbancat <- factor(urbancat)
+urbancat
+# Question g
+# A new copy of UsArrests with deleted third column
+USArrests
+NewUSArrests <- USArrests[,-3]
+NewUSArrests
+NewUSArrests$urbancat <- urbancat
+NewUSArrests$urbancat
+# Question h
+# Creating a scatterplot matrix from NewUSArrests
+Hggallymatrix<- ggpairs(NewUSArrests,aes(col=urbancat),axisLabels="internal")
+Hggallymatrix
+# Question i
+data("quakes")
+MQ <- quantile(quakes$mag,c(1/3,2/3))
+MF <- cut(quakes$mag,breaks=c(min(quakes$mag),MQ[1],MQ[2],max(quakes$mag)),include.lowest=TRUE)
+MF
+# Question j
+Rplot<- plot(quakes[,2],quakes[,1],pch=(1:3)[MF],xlab="Longitude",ylab="Latitude")
+Rplot
+# Question k
+legend("bottomleft",legend=levels(magfac),pch=1:3)
+
+```
+
+
+##Chapter 15 Exercise 15.1 
+```{r}
+# Question a
+# Pr(Ace)
+4/52 
+# Pr(4 of spades)
+1/52 
+# Question b
+# Pr(A|B)==Pr(A), These two events are independent
+13/52 
+# Question c
+# Pr(A)
+13/52 
+# Pr(A|B)  Pr(A|B)!=Pr(A), so the two events are no longer independent
+13/51 
+# Question d
+# Pr(C)
+12/52 
+# Pr(D)
+26/52 
+# Pr(C and D) = Pr(C|D)*Pr(D) = (6/26)*(26/52) = 6/52 != 0 therefore C and D are not mutually exclusive
+6/52 
+
+
+## Exercise 15.2 
+
+# Question a
+# i This is called Realization of discrete random variable
+# ii This is called Discrete random variable
+# iii This is called Discrete random variable
+# iv This is called Continuous random variable
+# v This is called Realization of discrete random variable
+# vi This is called Continous random variable
+# Question b
+S.outcomes <- 1:5
+# i
+# Pr(S=4)
+1-0.1-0.13-0.21-0.15 
+S.prob <- c(0.1,0.13,0.21,0.41,0.15)
+S.prob
+# ii
+cumP<- cumsum(S.prob)
+cumP
+# iii
+mu.S <- sum(S.prob*S.outcomes)
+mu.S
+# iv
+SR<- sqrt(sum(S.prob*(S.outcomes-mu.S)^2))
+SR
+# v
+Summ<- sum(S.prob[3:5])
+Summ
+# vi
+BP<- barplot(S.prob,ylim=c(0,0.5),names.arg=S.outcomes,space=0,xlab="s",ylab="Pr(S = s)") # Unimodal, asymmetric -- slight left skew
+BP
+# Question c
+# i
+funcw <- function(w){
+  w.upper <- w>65 & w<=90
+  w.lower <- w>=40 & w<=65
+  
+  result1 <- rep(0,length(w))
+  result1[w.upper] <- (90-w[w.upper])/625
+  result1[w.lower] <- (w[w.lower]-40)/625	
+  return(result1)
+}
+# ii
+Funcw <- function(w){
+  w.upper <- w>65 & w<=90
+  w.lower <- w>=40 & w<=65
+  
+  result2 <- rep(0,length(w))
+  result2[w.upper] <- (180*w[w.upper]-w[w.upper]^2-6850)/1250
+  result2[w.lower] <- (w[w.lower]^2-80*w[w.lower]+1600)/1250
+  result2[w>90] <- 1
+  
+  return(result2)
+}
+# iii
+funcw(55.2)
+Funcw(55.2)
+# iv
+Res<- 1-Funcw(60)
+Res
+# v
+Res2<- Funcw(76.89)-Funcw(60.3)
+Res2
+# Question d
+# i Bimodal, symmetric
+# ii Trimodal, asymmetric -- right skew
+# iii Unimodal, symmetric
+# iv Unimodal, asymmetric -- right skew
+
+```
