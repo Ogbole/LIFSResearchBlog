@@ -1,0 +1,516 @@
+---
+title: "Assignment Exercise 16-18"
+author: "Alex"
+date: "10/10/2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r}
+## Chapter 16 Exercise 16.1
+
+# Question a
+# 13 viewing platform, Probability = 75/100 or 0.75
+Bdis<- dbinom(x=0:13,size=13,prob=0.75)
+barplot(Bdis,names.arg=0:13,space=0,xlab="x",ylab="Pr(X = x)")
+# Question b
+#Probality to see birds at all times is Binomial dist
+Bdis2<- dbinom(x=13,size=13,prob=0.75)
+Bdis2
+#Question c
+#Probability of more than 9 is Pr(X>9), q = 9
+1-pbinom(q=9,size=13,prob=0.75)
+#Question d
+# Probality of 8>=P<=11
+# cumulative probality of d-function
+sum(dbinom(x=8:11,size=13,prob=0.75))
+# probalility using p-function q
+pbinom(q=11,size=13,prob=0.75)-pbinom(q=7,size=13,prob=0.75)
+#Question e
+#Probality of cumulatively seeing less than 9
+pbinom(q=8, size=13,prob=0.75)
+#Question f
+#Probability of 10 random visits
+Visits <- rbinom(n= 10,size=13,prob=0.75)
+Visits
+#Question g
+MnP <- 13*0.75
+MnP
+stndD <- sqrt(MnP*0.25)
+stndD
+
+
+## Exercise 16.2 
+
+#Question a
+1-ppois(q=100,lambda=107)
+#Question b
+dpois(x=0,lambda=107)
+#Question c
+#plotting 60<=x<=150
+barplot(dpois(x=60:150,lambda=107),names.arg=60:150,space=0,xlab="x",ylab="Pr(X = x)")
+#Question d
+sms <- rpois(n=260,lambda=107)
+hist(sms,xlim=c(60,150))
+
+## Exercise 16.3
+#min tree height 3, and max tree height 70
+Treeh1 <- 3
+Treeh2 <- 70
+# Question a
+punif(q=5.5,min=Treeh1,max=Treeh2)
+#Question b
+qunif(p=1-0.15,min=Treeh1,max=Treeh2)
+#Question c
+#mean of tree heights
+mTree <- (Treeh1+Treeh2)/2 
+mTree
+# standard deviation
+stdTrees <- sqrt((Treeh2-Treeh1)^2/12) 
+stdTrees
+#Question d
+punif(mTree+0.5*stdTrees,Treeh1,Treeh2) - punif(mTree-0.5*stdTrees,Treeh1,Treeh2)
+#Question e
+dens <- dunif(mTree,Treeh1,Treeh2)
+dens
+plot(c(Treeh1,Treeh2),rep(dens,2),type="o",pch=19,xlim=c(Treeh1-1,Treeh2+1),ylim=c(0,dens),ylab="f(x)",xlab="x")
+abline(h=0,lty=2)
+segments(c(Treeh1-5,Treeh2+5,Treeh1,Treeh2),rep(0,4),rep(c(Treeh1,Treeh2),2),rep(c(0,dens),each=2),lty=rep(1:2,each=2))
+points(c(Treeh1,Treeh2),c(0,0))
+#Question f
+simTreeh1 <- runif(n=10,min=Treeh1,max=Treeh2)
+simTreeh1
+quan1 <- quantile(x=simTreeh1,prob=1-0.15)
+quan1
+simTreeh2 <- runif(n=1000,min=Treeh1,max=Treeh2)
+quan2 <- quantile(x=simTreeh2,prob=1-0.15)
+quan2     
+# In all, both estimates seem to be centered on the 'true' value from (b), but those based on simulation Tree1 (the smaller sample set) are more variable.
+
+## Exercise 16.4
+#Question a
+m <- 17
+stdv <- 4.5
+# i
+1-pnorm(20,m,stdv)
+# ii
+pnorm(10,m,stdv)-pnorm(5,m,stdv)
+# iii
+slw10 <- qnorm(1-0.1,m,stdv)
+slw10
+# iv
+xvals <- seq(m-4*stdv,m+4*stdv,length=200)
+f <- dnorm(xvals,m,stdv)
+xsub <- xvals[xvals>=slw10]
+fsub <- f[xvals>=slw10]
+plot(xvals,f,type="l",main="N(17,4.5) distribution",xlab="x",ylab="f(x)")
+abline(h=0,col="gray")
+abline(v=slw10,lty=2)
+polygon(rbind(c(slw10,0),cbind(xsub,fsub),c(max(xvals),0)),border=NA,col="gray")
+# v
+rnorm(10,m,stdv)
+# Question b
+m <- 10
+stdv <- sqrt(2)
+# i
+pnorm(11,m,stdv)-pnorm(9.5,m,stdv)
+# ii
+standValue9.5 <- (9.5-m)/stdv
+standValue9.5
+standValue11 <- (11-m)/stdv
+standValue11
+pnorm(standValue11)-pnorm(standValue9.5)
+# iii
+shortest2.5 <- qnorm(0.025,m,stdv)
+shortest2.5
+# iv
+(shortest2.5-m)/stdv
+
+## Exercise 16.5 
+#Question a
+# i
+lambda.d <- 3500/365.25
+lambda.d
+# ii
+xvals <- seq(0,1,length=100)
+plot(xvals,dexp(xvals,lambda.d),type="l",xlab="x",ylab="f(x)",main="EXP(0.89) distribution")
+abline(h=0,col="gray")
+abline(v=0,col="gray")
+# iii
+pexp(q=0.5/24,rate=lambda.d)
+# iv
+qexp(p=1-0.1,rate=lambda.d)*24
+# Question b
+# i
+pexp(q=5,1/11)
+# ii
+pexp(q=6,1/9)
+# iii
+1-pexp(q=15,1/11)
+1-pexp(q=15,1/9)
+```
+
+## Exercise 17.1
+```{r}
+stndM <- 41.1
+#Question a
+StndE <- 11.3/sqrt(6)
+StndE
+# Question b
+pnorm(55,mean=stndM,sd=StndE)-pnorm(45,mean=stndM,sd=StndE)
+#Question c
+pnorm(32.5,stndM,StndE)
+#Question d
+SurveyTeens<- 140*0.35
+SurveyTeens
+SamplingD<-140*(1-0.35) 
+SamplingD
+# Both are greater than 5 so, meaning using the normal distribution to represent the sampling distribution of the sample proportion works fine.
+#Question e
+1-pnorm(0.4,mean=0.35,sd=sqrt(0.35*0.65/140))
+#Question f
+qnorm(0.9,0.35,sqrt(0.35*0.65/140))
+# Upper limit - tail above this value has probability 0.1
+qnorm(0.1,0.35,sqrt(0.35*0.65/140)) 
+# Lower limit - tail below this value has probability 0.1. Together, these two limits therefore mark of a central area under the curve of exactly 0.8.
+#Question g
+# Even though raw data are not normal, sample size is large (n>30 by rule-of-thumb). Standard deviation estimated from sample, so sampling distribution for the mean should be a t-distribution with 63-1=62 df.
+stdE <- 34.51/sqrt(63)
+stdE
+#Question h
+# i
+1-pt((40-37.8)/stdE,df=62)
+# ii
+pt((30-37.8)/stdE,df=62)
+# iii
+pt((40-37.8)/stdE,df=62)-0.5
+
+## Exercise 17.2
+
+sprintM <- 14.22
+stdD <- 2.9
+
+# Question a
+#90% confidence Interval 0.95
+sprintM+c(-1,1)*qnorm(0.95)*stdD/sqrt(34)
+
+# Question b
+sprintM+c(-1,1)*qt(0.95,df=33)*stdD/sqrt(34) 
+
+# Question c
+Lhand <- 37/400
+Lhand
+Lhand+c(-1,1)*qnorm(0.995)*sqrt(Lhand*(1-Lhand)/400) 
+
+# Question d
+Lhand <- (37+11)/400
+Lhand
+Lhand+c(-1,1)*qnorm(0.995)*sqrt(Lhand*(1-Lhand)/400) 
+
+# Question e
+CImat <- matrix(NA,nrow=5000,ncol=3)
+Size <- 300
+lambda.e <- 0.1
+M <- 1/lambda.e
+for(i in 1:5000){
+  samples <- rexp(Size,rate=lambda.e)
+  sampleci <- mean(samples)+c(-1,1)*qt(0.975,Size-1)*sd(samples)/sqrt(Size)
+  CImat[i,1:2] <- sampleci
+  CImat[i,3] <- M>=sampleci[1] && M<=sampleci[2]
+}
+mean(CImat[,3])
+# Question f
+plot(CImat[1,1:2],c(1,1),xlim=range(CImat[,1:2]),ylim=c(1,100),type="l",xlab="",ylab="")
+for(i in 2:100){
+  lines(CImat[i,1:2],c(i,i))
+}
+abline(v=M,col=2)
+```
+
+## Exercise 18.1 
+```{r}
+
+#Question a
+# H0: mu = 3.5; HA: mu != 3.5 (two-sided test)
+Hstat <- (3.97-3.5)/(2.21/sqrt(73))
+Hstat
+pt(-Hstat,df=72)+(1-pt(Hstat,df=72))
+# p-value is around 0.073, this is > than alpha=0.05, therefore insufficient evidence to reject the null hypothesis. There is no evidence that the true mean cat weight is different to 3.5.
+# Question b
+# H0: mu = 4.3; HA: mu > 4.3 (one-sided test)
+data("quakes")
+Result<- t.test(quakes$mag,mu=4.3,alternative="greater",conf.level=0.99)
+Result
+# p-value very small; strong evidence to reject the null. There is evidence to suggest that the true mean magnitude is greater than 4.3.
+#Question c
+MQ<-mean(quakes$mag)+c(-1,1)*qt(0.995,df=999)*sd(quakes$mag)/sqrt(1000)
+MQ
+
+## Exercise 18.2 
+# Question a
+library("MASS")
+?anorexia
+Resul<- t.test(anorexia[,3],anorexia[,2],alternative="greater",paired=TRUE)
+Resul
+# From the followng p-value ~0.0023. Less than 0.05; some evidence to reject H0. No evidence to suggest that the mean post-weight is greater than the mean pre-weight.
+# Question b
+# conducting three seperate hypothesis
+H1 <- t.test(anorexia[anorexia$Treat=="Cont",3],anorexia[anorexia$Treat=="Cont",2],alternative="greater",paired=TRUE)
+H1
+H2<- t.test(anorexia[anorexia$Treat=="CBT",3],anorexia[anorexia$Treat=="CBT",2],alternative="greater",paired=TRUE)
+H2
+H3<- t.test(anorexia[anorexia$Treat=="FT",3],anorexia[anorexia$Treat=="FT",2],alternative="greater",paired=TRUE)
+H3
+# From the results of H1, H2 and H3 there is no statistical evidence to reject the claim that there is no difference between the pre- and post-weight means in the control group, although there is mild evidence to reject at the 5% level for the CBL treatment, and strong evidence to reject in favor of HA for the FT treatment. It appears that the FT treatment is the most effective based on these data.
+# Question c
+data("PlantGrowth")
+?PlantGrowth
+controlGroup <- PlantGrowth$weight[PlantGrowth$group=="ctrl"]
+controlGroup
+treatedGroup <- PlantGrowth$weight[PlantGrowth$group!="ctrl"]
+treatedGroup
+# H0: mu_control - mu_treated = 0; HA: mu_control - mu_treated < 0
+max(c(sd(controlGroup),sd(treatedGroup)))/min(c(sd(controlGroup),sd(treatedGroup)))
+# Ratio of (large sd) / (small sd) is less than 2 so use pooled variance according to rule-of-thumb.
+# Question d
+ResG <- t.test(x=controlGroup,y=treatedGroup,alternative="less",var.equal=TRUE)
+ResG
+# Large p-value ~0.41. There is no evidence to reject H0. There is insufficient evidence to conclude that the mean treated weight is more than the mean untreated weight.
+# Question e
+# A wrapper function
+test <- function(x,y,paired=FALSE,var.equal=FALSE,...){	
+  if(!paired){
+    stdX <- sd(x)
+    stdY <- sd(y)
+    big <- max(c(stdX,stdY))
+    small <- min(c(sdX,sdY))
+    var.equal <- (big/small)<2
+  }
+  return(t.test(x=x,y=y,paired=paired,var.equal=var.equal,...))
+}
+# Question f
+# Snack Packet Example 1
+snacks <- c(87.7,80.01,77.28,78.76,81.52,74.2,80.71,79.5,77.87,81.94,80.7,82.32,
+            75.78,80.19,83.91,79.4,77.52,77.62,81.4,74.89,82.95,73.59,77.92,77.18,
+            79.83,81.23,79.28,78.44,79.01,80.47,76.23,78.89,77.14,69.94,78.54,79.7,
+            82.45,77.29,75.52,77.21,75.99,81.94,80.41,77.7)
+snacks2 <- c(80.22,79.73,81.1,78.76,82.03,81.66,80.97,81.32,80.12,78.98,79.21,
+             81.48,79.86,81.06,77.96,80.73,80.34,80.01,81.82,79.3,79.08,79.47,
+             78.98,80.87,82.24,77.22,80.03,79.2,80.95,79.17,81)
+SnackResult<- t.test(x=snacks2,y=snacks,alternative="greater",conf.level=0.9)
+SnackResult
+# IQ scores between men and women  Example 2
+men <- c(102,87,101,96,107,101,91,85,108,67,85,82)
+women <- c(73,81,111,109,143,95,92,120,93,89,119,79,90,126,62,92,77,106,105,111)
+TestResult<- t.test(x=men,y=women,alternative="two.sided",conf.level=0.95)
+TestResult
+# Drug Efficacy to reduce heart rate Example 3
+rate.before <- c(52,66,89,87,89,72,66,65,49,62,70,52,75,63,65,61) 
+rate.after <- c(51,66,71,73,70,68,60,51,40,57,65,53,64,56,60,59) 
+t.test(x=rate.after,y=rate.before,alternative="less",paired=TRUE,conf.level=0.95)
+
+## Exercise 18.3 
+
+# Question a
+# H0: p=0.9; HA: p<0.9
+Num <- 89
+Rsult<- Num*0.9
+Rsult
+Rsult2<-Num*0.1
+Rsult2
+# Both np and n(p-1) > 5 so OK to continue with normal distribution according to the rule-of-thumb.
+# Question b
+pstat <- 71/Num
+pstat
+R <- (pstat-0.9)/(sqrt(0.9*0.1/Num))
+R
+pnorm(R)
+prop.test(x=71,n=Num,p=0.9,alternative="less",conf.level=0.9,correct=FALSE)
+# p-value very small; less than 0.1. There is evidence to reject H0 and conclude the true proportion of women who would recommend in samples of size 89 is less than 0.9.
+# Question c
+pstat+c(-1,1)*qnorm(0.95)*sqrt(pstat*(1-pstat)/Num)
+# Question d
+x1 <- 97
+Num1 <- 445
+pstat1 <- x1/Num1
+pstat1
+x2 <- 90
+Num2 <- 419
+pstat2 <- x2/Num2
+pstat2
+p.star <- (x1+x2)/(Num1+Num2)
+p.star
+Z <- (pstat2-pstat1)/sqrt(p.star*(1-p.star)*(1/Num1+1/Num2))
+Z
+Result<- 2*pnorm(Z)
+Result
+# p-value is very large; much greater than 0.05. No evidence to reject H0. Retain H0 and conclude there is no evidence to suggest the proportion of citizens who support decriminalization varies between the two states.
+# Question e
+(pstat2-pstat1)+c(-1,1)*qnorm(0.975)*sqrt(p.star*(1-p.star)*(1/Num1+1/Num2))
+# We are 95% confident that the true difference in the proportion of support between State 2 and State 1 lies somewhere between -0.058 and 0.051. CI includes zero; reflects the same result as the hypothesis (no evidence of a difference).
+# Question f
+Z.test <- function(p1,n1,p2=NULL,n2=NULL,p0,alternative="two.sided",conf.level=0.95){
+  if(is.null(p2)||is.null(n2)){
+    cat("One-sample Z-test.\n")
+    if(p1*n1<=5||n1*(1-p1)<=5){
+      warning("Normal distribution may not be valid; np or n(1-p) <= 5 detected.")
+    }
+    Z <- (p1-p0)/sqrt(p0*(1-p0)/n1)
+    CI <- (p1)+c(-1,1)*qnorm(conf.level+(1-conf.level)/2)*sqrt(p0*(1-p0)/n1)
+  } else {
+    cat("Two-sample Z-test.\n")
+    if(p1*n1<=5||n1*(1-p1)<=5||p2*n2<=5||n2*(1-p2)<=5){
+      warning("Normal distribution may not be valid; np or n(1-p) <= 5 detected.")
+    }
+    p.star <- (p1*n1+p2*n2)/(n1+n2)
+    Z <- (p1-p2-p0)/sqrt(p.star*(1-p.star)*(1/n1+1/n2))
+    CI <- sort((p1-p2)+c(-1,1)*qnorm(conf.level+(1-conf.level)/2)*sqrt(p.star*(1-p.star)*(1/n1+1/n2)))
+  }
+  
+  P <- pnorm(Z)
+  if(alternative=="greater"){
+    P <- 1-P
+  } else if(alternative=="two.sided"){
+    if(Z<0){
+      P <- 2*P
+    } else {
+      P <- 2*(1-P)
+    }
+  }
+  return(list(Z=Z,P=P,CI=CI))
+}
+# Question g
+# Sick People Example 1
+sick <- c(0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,1,1,0,0,0,1)
+Z.test(p1=mean(sick),n1=length(sick),p0=0.2,alternative="two.sided",conf.level=0.95)
+# Psychology and Geography studentsExample 2
+Psych.x1 <- 180
+Psych.n1 <- 233
+p.hat1 <- Psych.x1/Psych.n1
+Geo.x2 <- 175
+Geo.n2 <- 197
+p.hat2 <- Geo.x2/Geo.n2
+Result<-Z.test(p.hat2,Geo.n2,p.hat1,Psych.n1,p0=0,alternative="greater",conf.level=0.95)
+Result
+# ...or you could flip the order of differencing and use alternative="less"
+# Question h
+WarningMess<- Z.test(p1=0.11,n1=10,p0=0.1)
+WarningMess
+## Exercise 18.4 
+# Question a
+#H0: No relationship between hair and eye color; HA: There is a relationship.
+data("HairEyeColor")
+?HairEyeColor
+TestofInd<- chisq.test(x=HairEyeColor[,,1]+HairEyeColor[,,2])
+TestofInd
+# Very small P-value. Very strong evidence against the null. Reject H0 and conclude there does appear to be a relationship between hair and eye color of statistics students.
+# Question b
+#H0: p1=p2=p3=1/3; HA: H0 is incorrect
+library("car")
+data("Duncan")
+?Duncan
+jobtype <- Duncan$type
+jobtype
+jobtype.tab <- table(jobtype)
+jobtype.tab
+chisq.test(jobtype.tab)
+# i With a significance level of 0.05 and a p-value of 0.015, there is weak evidence to reject H0 and we therefore conclude that the three job types do not appear to be unifomly represented in the data set.
+# ii With a significance level of 0.01 and a P-value of 0.015, there is no evidence to reject H0 and we therefore conclude that the three job types appear to be unifomly represented in the data set. 
+
+
+## Exercise 18.5 
+
+# Question a
+typeI.mean <- function(mu0,sigma,n,alpha,test="two.sided",ITERATIONS=10000){
+  tstats <- rep(NA,ITERATIONS)
+  for(i in 1:ITERATIONS){
+    temporary.sample <- rnorm(n=n,mean=mu0,sd=sigma)
+    temporary.mean <- mean(temporary.sample)
+    temporary.sd <- sd(temporary.sample)
+    tstats[i] <- (temporary.mean-mu0)/(temporary.sd/sqrt(n))
+  }
+  pvals <- pt(tstats,df=n-1)
+  if(test=="less"){
+    return(mean(pvals<alpha))
+  } else if(test=="greater"){
+    return(mean((1-pvals)<alpha))
+  } else if(test=="two.sided"){
+    result <- pvals
+    result[tstats>0] <- 1-pvals[tstats>0]
+    return(mean(result<alpha/2))
+  } else {
+    stop("'test' argument not recognised")
+  }
+}
+# i
+typeI.mean(mu0=0,sigma=1,n=40,alpha=0.05,test="less")
+typeI.mean(mu0=0,sigma=1,n=40,alpha=0.05,test="greater")
+typeI.mean(mu0=0,sigma=1,n=40,alpha=0.05,test="two.sided")
+# ii
+typeI.mean(mu0=-4,sigma=0.3,n=60,alpha=0.01,test="less")
+typeI.mean(mu0=-4,sigma=0.3,n=60,alpha=0.01,test="greater")
+typeI.mean(mu0=-4,sigma=0.3,n=60,alpha=0.01,test="two.sided")
+# Question b
+typeII.mean <- function(mu0,muA,sigma,n,alpha,test="two.sided",ITERATIONS=10000){
+  tstats <- rep(NA,ITERATIONS)
+  for(i in 1:ITERATIONS){
+    temporary.sample <- rnorm(n=n,mean=muA,sd=sigma)
+    temporary.mean <- mean(temporary.sample)
+    temporary.sd <- sd(temporary.sample)
+    tstats[i] <- (temporary.mean-mu0)/(temporary.sd/sqrt(n))
+  }
+  pvals <- pt(tstats,df=n-1)
+  if(test=="less"){
+    return(mean(pvals>=alpha))
+  } else if(test=="greater"){
+    return(mean((1-pvals)>=alpha))
+  } else if(test=="two.sided"){
+    result <- pvals
+    result[tstats>0] <- 1-pvals[tstats>0]
+    return(mean(result>=alpha/2))
+  } else {
+    stop("'test' argument not recognised")
+  }
+}
+# i
+typeII.mean(mu0=-3.2,muA=-3.3,sigma=0.1,n=25,alpha=0.05,test="two.sided")
+# ii
+typeII.mean(mu0=8994,muA=5600,sigma=3888,n=9,alpha=0.01,test="less")
+# iii 
+typeII.mean(mu0=0.44,muA=0.4,sigma=2.4,n=68,alpha=0.05,test="greater")
+
+
+## Exercise 18.6
+
+# Question a
+power.mean <- function(nvec,...){
+  nlen <- length(nvec)
+  result <- rep(NA,nlen)
+  pbar <- txtProgressBar(min=0,max=nlen,style=3)
+  for(i in 1:nlen){
+    result[i] <- 1-typeII.mean(n=nvec[i],...)
+    setTxtProgressBar(pbar,i)
+  }
+  close(pbar)
+  return(result)
+}
+# i
+power.mean(nvec=50,mu0=10,muA=10.5,sigma=0.9,alpha=0.01,test="two.sided")
+# ii
+power.mean(nvec=44,mu0=80,muA=78.5,sigma=3.1,alpha=0.05,test="less") #Yes, seems statistically powerful.
+power.mean(nvec=44,mu0=80,muA=78.5,sigma=3.1,alpha=0.01,test="less") #No, power appears less than 80%, but only just...
+# Question b
+sample.sizes <- 5:100
+pow <- power.mean(nvec=sample.sizes,mu0=80,muA=78.5,sigma=3.1,alpha=0.05,test="less")
+minimum.n <- sample.sizes[min(which(pow>=0.8))]
+minimum.n
+pow2 <- power.mean(nvec=sample.sizes,mu0=80,muA=78.5,sigma=3.1,alpha=0.01,test="less")
+minimum.n2 <- sample.sizes[min(which(pow2>=0.8))]
+minimum.n2
+plot(sample.sizes,pow,xlab="sample size n",ylab="simulated power")
+points(sample.sizes,pow2,col="grey")
+abline(h=0.8,lty=2)
+abline(v=c(minimum.n,minimum.n2),lty=3,col=c("black","grey"))
+legend("bottomright",legend=c("alpha=0.05","alpha=0.01"),col=c("black","grey"),pch=1)
+```
