@@ -1,0 +1,129 @@
+---
+title: "Crime in London"
+author: "Alex"
+date: "10/10/2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r}
+##** Each answer should include a plot or graph.
+
+##** Each answer should provide some information about error (confidence).
+##error <- qnorm(0.975)*s/sqrt(n)
+Allstreetsfiles<- list.files(path = "streets",pattern = ".csv",full.names = TRUE)
+Resultbind<- do.call("rbind",lapply(Allstreetsfiles,read.csv,header=TRUE, sep=","))
+Resultbind
+TotalStreetCrimes<- 6323 # Total Rows= 6,323 This represent total crime record in the period under review
+CrimeAllstreets<- as.data.frame(Resultbind,row.names = NULL)  
+CrimeAllstreets
+
+Crime_on_or_near_Aldgate<- subset(CrimeAllstreets,Location =="On or near Aldgate")
+Crime_on_or_near_Aldgate
+
+CrimesAldgate<- 73 # Total Rows = 73 Representing total crime recorded On or near Aldgate
+CrimesAldgate
+
+# Question a
+#* What is the probability that any crime will happen on or near Aldgate?
+
+#Pr(A)= t/n 
+#PrCrimeonAldg<- CrimeAlgate/TotalStreetCrimes
+PrCrimeonAldg = 73/6323
+PrCrimeonAldg
+
+#ii A graph of the probability
+library(ggplot2)
+Piechart<- pie(PrCrimeonAldg,TotalStreetCrimes, labels= c("Crime.ID","Location","Crime.type"),las=1,
+              main="Probability of any crime\n On or near Aldgate",)
+
+#iii Confidence error <- qnorm(0.975)*s/sqrt(n)) where n= TotalStreetCrimes and s=Standard Deviation =sqrt(Variance)
+# Variance = sum(total-mean)^2*Pr(A)
+getmean_crime_on_aldgate<- summary(Crime_on_or_near_Aldgate)
+getmean_crime_on_aldgate
+#mean = 51
+Variance<- sum((CrimesAldgate-51)^2*PrCrimeonAldg)
+Variance
+S= sqrt(Variance)
+S
+CE <- qnorm(0.975)*S/sqrt(TotalStreetCrimes)
+CE
+
+# Question b
+#* What percentage of crime in London is 'violence and sexual offences'?
+Viol.sex.off<- subset(CrimeAllstreets,Crime.type== "Violence and sexual offences")
+Viol.sex.off
+#TotalVSO = 833 Represents total rows identified with Violence and sexual offences
+TotalVSO <- 833
+PercentageVSO <- TotalVSO/TotalStreetCrimes*100
+PercentageVSO
+
+#ii graph of the percentage
+piechart2<- pie(PercentageVSO,TotalStreetCrimes, labels=c("Crime.ID","Location","Crime.type"),las=1,
+              main="Percentage of crimes in London\n That are Violence and sexual Offences",)
+#iii Confidence error
+#find probability to calculate variance
+ProbVSO <- TotalVSO/TotalStreetCrimes
+ProbVSO
+
+#mean
+getmeanVSO<- summary(Viol.sex.off)
+getmeanVSO
+#mean = 51
+Var2<- sum((TotalVSO-51)^2*ProbVSO)
+Var2
+S2= sqrt(Var2)
+S2
+CE2<- qnorm(0.975)*S2/sqrt(TotalStreetCrimes)
+CE2
+
+# Question c
+#* What is the probability that no suspect will be identified in a bicycle theft?
+ProbNotbictheft<- subset(CrimeAllstreets,Crime.type!="Bicycle theft",)
+ProbNotbictheft
+TotalNBT<- 5995
+TotalNBT
+
+PrNBT<- TotalNBT/TotalStreetCrimes
+PrNBT
+#ii graph
+piechart3<- pie(PrNBT,TotalStreetCrimes, labels=c("Crime.ID","Location","Crime.type"),las=1,
+              main="Probability of no suspect will be identified\n in a bicycle theft",)
+
+#iii Confidence error
+# Variance = sum(total-mean)^2*Pr(A)
+getmean_NBT<- summary(ProbNotbictheft)
+getmean_NBT
+#mean = 51
+Var3<- sum((TotalNBT-51)^2*PrNBT)
+Var3
+S3= sqrt(Var3)
+S3
+CE3 <- qnorm(0.975)*S3/sqrt(TotalStreetCrimes)
+CE3
+# Question d
+#* What is the probability of 'robery' on Carthusian Street?
+Prob_Rob_on_Carth_Str <- CrimeAllstreets[(CrimeAllstreets$Crime.type=="Robbery")&(CrimeAllstreets$Location=="On or near Carthusian Street"), ]
+Prob_Rob_on_Carth_Str
+TotalROCS<-6221
+TotalROCS
+PrROCS<- TotalROCS/TotalStreetCrimes
+PrROCS
+#ii graph
+piechart3<- pie(PrROCS,TotalStreetCrimes, labels=c("Crime.ID","Location","Crime.type"),las=1,
+              main="Probability of Robbery on\n near Carthusian Street",)
+
+#iii Confidence error
+# Variance = sum(total-mean)^2*Pr(A)
+getmean_ROCS<- summary(Prob_Rob_on_Carth_Str)
+getmean_ROCS
+#mean = 51
+Var4<- sum((TotalNBT-51)^2*PrROCS)
+Var4
+S4= sqrt(Var4)
+S4
+CE4 <- qnorm(0.975)*S4/sqrt(TotalStreetCrimes)
+CE4
+```
+
