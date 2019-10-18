@@ -1,0 +1,361 @@
+"","Country","Region","Sub.Region","Category","Year","Count","Rate","Percent.of.firms.paying.for.security","If.the.establishment.pays.for.security..average.security.costs....of.annual.sales.","Percent.of.firms.experiencing.losses.due.to.theft.and.vandalism","If.there.were.losses..average.losses.due.to.theft.and.vandalism....of.annual.sales.","Products.shipped.to.supply.domestic.markets.that.were.lost.due.to.theft....of.product.value..","Percent.of.firms.identifying.crime..theft.and.disorder.as.a.major.constraint","Most.Recent.Year","Most.Recent.Value"
+"1","Albania","Europe","Southern Europe","1.Police Personnel (Total)","2014","9625",0.09625,"53.9","4.2","5.2","1.3","0.3","5.2",2014,1485
+"2","Albania","Europe","Southern Europe","11.Prison Personnel Male","2014","3124",NA,"53.9","4.2","5.2","1.3","0.3","5.2",2014,1485
+"3","Albania","Europe","Southern Europe","12.Prison Personnel Female","2014","555",NA,"53.9","4.2","5.2","1.3","0.3","5.2",2014,1485
+"4","Albania","Europe","Southern Europe","2.Police Personnel Male","2014","8607",NA,"53.9","4.2","5.2","1.3","0.3","5.2",2014,1485
+"5","Albania","Europe","Southern Europe","3.Police Personnel Female","2014","1018",NA,"53.9","4.2","5.2","1.3","0.3","5.2",2014,1485
+"6","Albania","Europe","Southern Europe","4.Professional Judges or Magistrates (Total)","2014","361",0.00361,"53.9","4.2","5.2","1.3","0.3","5.2",2014,1485
+"7","Albania","Europe","Southern Europe","5.Professional Judges or Magistrates Male","2014","204",NA,"53.9","4.2","5.2","1.3","0.3","5.2",2014,1485
+"8","Albania","Europe","Southern Europe","6.Professional Judges or Magistrates Female","2014","157",NA,"53.9","4.2","5.2","1.3","0.3","5.2",2014,1485
+"9","Argentina","Americas","South America","1.Police Personnel (Total)","2014","341627",3.41627,"61.9","1.4","14.5","1.8","0.2","14",2014,591
+"10","Argentina","Americas","South America","11.Prison Personnel Male","2014","30695",NA,"61.9","1.4","14.5","1.8","0.2","14",2014,591
+"11","Argentina","Americas","South America","12.Prison Personnel Female","2014","11245",NA,"61.9","1.4","14.5","1.8","0.2","14",2014,591
+"12","Argentina","Americas","South America","4.Professional Judges or Magistrates (Total)","2014","2024",0.02024,"61.9","1.4","14.5","1.8","0.2","14",2014,591
+"13","Argentina","Americas","South America","5.Professional Judges or Magistrates Male","2014","1420",NA,"61.9","1.4","14.5","1.8","0.2","14",2014,591
+"14","Argentina","Americas","South America","6.Professional Judges or Magistrates Female","2014","604",NA,"61.9","1.4","14.5","1.8","0.2","14",2014,591
+"15","Armenia","Asia","Western Asia","11.Prison Personnel Male","2014","2000",NA,"44.7","2.4","3.9","3.6","0","3",2014,562
+"16","Armenia","Asia","Western Asia","12.Prison Personnel Female","2014","40",NA,"44.7","2.4","3.9","3.6","0","3",2014,562
+"17","Armenia","Asia","Western Asia","4.Professional Judges or Magistrates (Total)","2014","226",0.00226,"44.7","2.4","3.9","3.6","0","3",2014,562
+"18","Armenia","Asia","Western Asia","5.Professional Judges or Magistrates Male","2014","173",NA,"44.7","2.4","3.9","3.6","0","3",2014,562
+"19","Armenia","Asia","Western Asia","6.Professional Judges or Magistrates Female","2014","53",NA,"44.7","2.4","3.9","3.6","0","3",2014,562
+"20","Azerbaijan","Asia","Western Asia","4.Professional Judges or Magistrates (Total)","2014","519",0.00519,"45.4","3.6","1.8","2.3","0","0.3",2014,447
+"21","Azerbaijan","Asia","Western Asia","5.Professional Judges or Magistrates Male","2014","456",NA,"45.4","3.6","1.8","2.3","0","0.3",2014,447
+"22","Azerbaijan","Asia","Western Asia","6.Professional Judges or Magistrates Female","2014","63",NA,"45.4","3.6","1.8","2.3","0","0.3",2014,447
+"23","Barbados","Americas","Caribbean","1.Police Personnel (Total)","2014","1428",0.01428,"47.9","1.2","8.5","0.6","n.a.","1.2",2014,1422
+"24","Barbados","Americas","Caribbean","11.Prison Personnel Male","2014","260",NA,"47.9","1.2","8.5","0.6","n.a.","1.2",2014,1422
+"25","Barbados","Americas","Caribbean","12.Prison Personnel Female","2014","152",NA,"47.9","1.2","8.5","0.6","n.a.","1.2",2014,1422
+"26","Barbados","Americas","Caribbean","2.Police Personnel Male","2014","1193",NA,"47.9","1.2","8.5","0.6","n.a.","1.2",2014,1422
+"27","Barbados","Americas","Caribbean","3.Police Personnel Female","2014","235",NA,"47.9","1.2","8.5","0.6","n.a.","1.2",2014,1422
+"28","Barbados","Americas","Caribbean","4.Professional Judges or Magistrates (Total)","2014","24",0.00024,"47.9","1.2","8.5","0.6","n.a.","1.2",2014,1422
+"29","Barbados","Americas","Caribbean","5.Professional Judges or Magistrates Male","2014","11",NA,"47.9","1.2","8.5","0.6","n.a.","1.2",2014,1422
+"30","Barbados","Americas","Caribbean","6.Professional Judges or Magistrates Female","2014","13",NA,"47.9","1.2","8.5","0.6","n.a.","1.2",2014,1422
+"31","Belarus","Europe","Eastern Europe","4.Professional Judges or Magistrates (Total)","2014","1239",0.01239,"59.5","1.5","10.2","2","0","3",2014,618
+"32","Belize","Americas","Central America","1.Police Personnel (Total)","2014","1726",0.01726,"70.4","1.3","7.6","1","n.a.","52.3",2014,1705
+"33","Belize","Americas","Central America","11.Prison Personnel Male","2014","255",NA,"70.4","1.3","7.6","1","n.a.","52.3",2014,1705
+"34","Belize","Americas","Central America","12.Prison Personnel Female","2014","37",NA,"70.4","1.3","7.6","1","n.a.","52.3",2014,1705
+"35","Belize","Americas","Central America","2.Police Personnel Male","2014","162",NA,"70.4","1.3","7.6","1","n.a.","52.3",2014,1705
+"36","Belize","Americas","Central America","3.Police Personnel Female","2014","264",NA,"70.4","1.3","7.6","1","n.a.","52.3",2014,1705
+"37","Belize","Americas","Central America","4.Professional Judges or Magistrates (Total)","2014","10",1e-04,"70.4","1.3","7.6","1","n.a.","52.3",2014,1705
+"38","Belize","Americas","Central America","5.Professional Judges or Magistrates Male","2014","6",NA,"70.4","1.3","7.6","1","n.a.","52.3",2014,1705
+"39","Belize","Americas","Central America","6.Professional Judges or Magistrates Female","2014","4",NA,"70.4","1.3","7.6","1","n.a.","52.3",2014,1705
+"40","Bosnia and Herzegovina","Europe","Southern Europe","1.Police Personnel (Total)","2014","15859",0.15859,"41.2","1","13.7","2.5","0.3","7.2",2014,1028
+"41","Bosnia and Herzegovina","Europe","Southern Europe","11.Prison Personnel Male","2014","1547",NA,"41.2","1","13.7","2.5","0.3","7.2",2014,1028
+"42","Bosnia and Herzegovina","Europe","Southern Europe","12.Prison Personnel Female","2014","297",NA,"41.2","1","13.7","2.5","0.3","7.2",2014,1028
+"43","Bosnia and Herzegovina","Europe","Southern Europe","2.Police Personnel Male","2014","14708",NA,"41.2","1","13.7","2.5","0.3","7.2",2014,1028
+"44","Bosnia and Herzegovina","Europe","Southern Europe","3.Police Personnel Female","2014","1151",NA,"41.2","1","13.7","2.5","0.3","7.2",2014,1028
+"45","Bosnia and Herzegovina","Europe","Southern Europe","4.Professional Judges or Magistrates (Total)","2014","1063",0.01063,"41.2","1","13.7","2.5","0.3","7.2",2014,1028
+"46","Bosnia and Herzegovina","Europe","Southern Europe","5.Professional Judges or Magistrates Male","2014","402",NA,"41.2","1","13.7","2.5","0.3","7.2",2014,1028
+"47","Bosnia and Herzegovina","Europe","Southern Europe","6.Professional Judges or Magistrates Female","2014","661",NA,"41.2","1","13.7","2.5","0.3","7.2",2014,1028
+"48","Botswana","Africa","Southern Africa","11.Prison Personnel Male","2014","1413",NA,"85.4","1.4","50.7","3.1","0.8","22.6",2014,416
+"49","Botswana","Africa","Southern Africa","12.Prison Personnel Female","2014","276",NA,"85.4","1.4","50.7","3.1","0.8","22.6",2014,416
+"50","Brazil","Americas","South America","11.Prison Personnel Male","2014","47957",NA,"72.6","2.4","38.3","6.9","0.5","68.6",2014,1761
+"51","Brazil","Americas","South America","12.Prison Personnel Female","2014","20124",NA,"72.6","2.4","38.3","6.9","0.5","68.6",2014,1761
+"52","Bulgaria","Europe","Eastern Europe","1.Police Personnel (Total)","2014","28171",0.28171,"75.7","1.3","21.4","3.4","0.1","8.3",2014,608
+"53","Bulgaria","Europe","Eastern Europe","4.Professional Judges or Magistrates (Total)","2014","2201",0.02201,"75.7","1.3","21.4","3.4","0.1","8.3",2014,608
+"54","Bulgaria","Europe","Eastern Europe","7.Prosecution Personnel (Total)","2014","1948",0.01948,"75.7","1.3","21.4","3.4","0.1","8.3",2014,608
+"55","Burundi","Africa","Eastern Africa","1.Police Personnel (Total)","2014","16173",0.16173,"72","1.6","11.3","3.8","0.1","8",2014,1274
+"56","Burundi","Africa","Eastern Africa","11.Prison Personnel Male","2014","85",NA,"72","1.6","11.3","3.8","0.1","8",2014,1274
+"57","Burundi","Africa","Eastern Africa","12.Prison Personnel Female","2014","99",NA,"72","1.6","11.3","3.8","0.1","8",2014,1274
+"58","Burundi","Africa","Eastern Africa","2.Police Personnel Male","2014","15307",NA,"72","1.6","11.3","3.8","0.1","8",2014,1274
+"59","Burundi","Africa","Eastern Africa","3.Police Personnel Female","2014","866",NA,"72","1.6","11.3","3.8","0.1","8",2014,1274
+"60","Burundi","Africa","Eastern Africa","4.Professional Judges or Magistrates (Total)","2014","689",0.00689,"72","1.6","11.3","3.8","0.1","8",2014,1274
+"61","Cabo Verde","Africa","Western Africa","1.Police Personnel (Total)","2014","1764",0.01764,"60.2","3.2","43.2","3.9","n.a.","62.3",2014,228
+"62","Cabo Verde","Africa","Western Africa","4.Professional Judges or Magistrates (Total)","2014","57",0.00057,"60.2","3.2","43.2","3.9","n.a.","62.3",2014,228
+"63","Cabo Verde","Africa","Western Africa","5.Professional Judges or Magistrates Male","2014","37",NA,"60.2","3.2","43.2","3.9","n.a.","62.3",2014,228
+"64","Cabo Verde","Africa","Western Africa","6.Professional Judges or Magistrates Female","2014","20",NA,"60.2","3.2","43.2","3.9","n.a.","62.3",2014,228
+"65","Cameroon","Africa","Middle Africa","11.Prison Personnel Male","2014","2303",NA,"61","5.7","34","8.9","2.8","28.3",2014,1604
+"66","Cameroon","Africa","Middle Africa","12.Prison Personnel Female","2014","981",NA,"61","5.7","34","8.9","2.8","28.3",2014,1604
+"67","Chile","Americas","South America","1.Police Personnel (Total)","2014","49450",0.4945,"76.5","1.5","47.7","1.7","0.5","37.5",2014,1522
+"68","Chile","Americas","South America","11.Prison Personnel Male","2014","14524",NA,"76.5","1.5","47.7","1.7","0.5","37.5",2014,1522
+"69","Chile","Americas","South America","12.Prison Personnel Female","2014","5796",NA,"76.5","1.5","47.7","1.7","0.5","37.5",2014,1522
+"70","Chile","Americas","South America","2.Police Personnel Male","2014","42432",NA,"76.5","1.5","47.7","1.7","0.5","37.5",2014,1522
+"71","Chile","Americas","South America","3.Police Personnel Female","2014","7027",NA,"76.5","1.5","47.7","1.7","0.5","37.5",2014,1522
+"72","Chile","Americas","South America","4.Professional Judges or Magistrates (Total)","2014","916",0.00916,"76.5","1.5","47.7","1.7","0.5","37.5",2014,1522
+"73","Chile","Americas","South America","5.Professional Judges or Magistrates Male","2014","455",NA,"76.5","1.5","47.7","1.7","0.5","37.5",2014,1522
+"74","Chile","Americas","South America","6.Professional Judges or Magistrates Female","2014","461",NA,"76.5","1.5","47.7","1.7","0.5","37.5",2014,1522
+"75","China","Asia","Eastern Asia","4.Professional Judges or Magistrates (Total)","2014","201715",2.01715,"66","1.1","3.9","0.5","0.1","0.8",2014,645
+"76","China","Asia","Eastern Asia","5.Professional Judges or Magistrates Male","2014","140108",NA,"66","1.1","3.9","0.5","0.1","0.8",2014,645
+"77","China","Asia","Eastern Asia","6.Professional Judges or Magistrates Female","2014","61607",NA,"66","1.1","3.9","0.5","0.1","0.8",2014,645
+"78","Colombia","Americas","South America","1.Police Personnel (Total)","2014","149002",1.49002,"77.1","1.7","21.2","1.9","0.3","26",2014,3240
+"79","Colombia","Americas","South America","11.Prison Personnel Male","2014","11343",NA,"77.1","1.7","21.2","1.9","0.3","26",2014,3240
+"80","Colombia","Americas","South America","12.Prison Personnel Female","2014","3235",NA,"77.1","1.7","21.2","1.9","0.3","26",2014,3240
+"81","Colombia","Americas","South America","2.Police Personnel Male","2014","137696",NA,"77.1","1.7","21.2","1.9","0.3","26",2014,3240
+"82","Colombia","Americas","South America","3.Police Personnel Female","2014","11306",NA,"77.1","1.7","21.2","1.9","0.3","26",2014,3240
+"83","Colombia","Americas","South America","4.Professional Judges or Magistrates (Total)","2014","4822",0.04822,"77.1","1.7","21.2","1.9","0.3","26",2014,3240
+"84","Costa Rica","Americas","Central America","4.Professional Judges or Magistrates (Total)","2014","1288",0.01288,"74.6","2","32.8","1.3","0.1","21.3",2014,2926
+"85","Costa Rica","Americas","Central America","5.Professional Judges or Magistrates Male","2014","621",NA,"74.6","2","32.8","1.3","0.1","21.3",2014,2926
+"86","Costa Rica","Americas","Central America","6.Professional Judges or Magistrates Female","2014","667",NA,"74.6","2","32.8","1.3","0.1","21.3",2014,2926
+"87","Croatia","Europe","Southern Europe","1.Police Personnel (Total)","2014","20562",0.20562,"27.7","0.8","22.5","1.7","0.3","8",2014,1113
+"88","Croatia","Europe","Southern Europe","11.Prison Personnel Male","2014","2050",NA,"27.7","0.8","22.5","1.7","0.3","8",2014,1113
+"89","Croatia","Europe","Southern Europe","12.Prison Personnel Female","2014","735",NA,"27.7","0.8","22.5","1.7","0.3","8",2014,1113
+"90","Croatia","Europe","Southern Europe","2.Police Personnel Male","2014","16981",NA,"27.7","0.8","22.5","1.7","0.3","8",2014,1113
+"91","Croatia","Europe","Southern Europe","3.Police Personnel Female","2014","3581",NA,"27.7","0.8","22.5","1.7","0.3","8",2014,1113
+"92","Croatia","Europe","Southern Europe","4.Professional Judges or Magistrates (Total)","2014","1903",0.01903,"27.7","0.8","22.5","1.7","0.3","8",2014,1113
+"93","Croatia","Europe","Southern Europe","5.Professional Judges or Magistrates Male","2014","584",NA,"27.7","0.8","22.5","1.7","0.3","8",2014,1113
+"94","Croatia","Europe","Southern Europe","6.Professional Judges or Magistrates Female","2014","1319",NA,"27.7","0.8","22.5","1.7","0.3","8",2014,1113
+"95","Czech Republic","Europe","Eastern Europe","1.Police Personnel (Total)","2014","39384",0.39384,"55.9","1.4","35.1","1.8","0.4","8.8",2014,677
+"96","Czech Republic","Europe","Eastern Europe","11.Prison Personnel Male","2014","8067",NA,"55.9","1.4","35.1","1.8","0.4","8.8",2014,677
+"97","Czech Republic","Europe","Eastern Europe","12.Prison Personnel Female","2014","2606",NA,"55.9","1.4","35.1","1.8","0.4","8.8",2014,677
+"98","Czech Republic","Europe","Eastern Europe","2.Police Personnel Male","2014","33447",NA,"55.9","1.4","35.1","1.8","0.4","8.8",2014,677
+"99","Czech Republic","Europe","Eastern Europe","3.Police Personnel Female","2014","5937",NA,"55.9","1.4","35.1","1.8","0.4","8.8",2014,677
+"100","Czech Republic","Europe","Eastern Europe","4.Professional Judges or Magistrates (Total)","2014","762",0.00762,"55.9","1.4","35.1","1.8","0.4","8.8",2014,677
+"101","Czech Republic","Europe","Eastern Europe","5.Professional Judges or Magistrates Male","2014","1192",NA,"55.9","1.4","35.1","1.8","0.4","8.8",2014,677
+"102","Czech Republic","Europe","Eastern Europe","6.Professional Judges or Magistrates Female","2014","1836",NA,"55.9","1.4","35.1","1.8","0.4","8.8",2014,677
+"103","Czech Republic","Europe","Eastern Europe","7.Prosecution Personnel (Total)","2014","1233",0.01233,"55.9","1.4","35.1","1.8","0.4","8.8",2014,677
+"104","Czech Republic","Europe","Eastern Europe","8.Prosecution Personnel Male","2014","576",NA,"55.9","1.4","35.1","1.8","0.4","8.8",2014,677
+"105","Czech Republic","Europe","Eastern Europe","9.Prosecution Personnel Female","2014","657",NA,"55.9","1.4","35.1","1.8","0.4","8.8",2014,677
+"106","Dominican Republic","Americas","Caribbean","1.Police Personnel (Total)","2014","35177",0.35177,"47.7","2.9","16.7","6.6","0.1","32.4",2014,1410
+"107","Dominican Republic","Americas","Caribbean","2.Police Personnel Male","2014","30462",NA,"47.7","2.9","16.7","6.6","0.1","32.4",2014,1410
+"108","Dominican Republic","Americas","Caribbean","3.Police Personnel Female","2014","4715",NA,"47.7","2.9","16.7","6.6","0.1","32.4",2014,1410
+"109","Ecuador","Americas","South America","1.Police Personnel (Total)","2014","43593",0.43593,"68.2","1.8","17.3","2.3","0.2","18",2014,2274
+"110","Ecuador","Americas","South America","2.Police Personnel Male","2014","39191",NA,"68.2","1.8","17.3","2.3","0.2","18",2014,2274
+"111","Ecuador","Americas","South America","3.Police Personnel Female","2014","4402",NA,"68.2","1.8","17.3","2.3","0.2","18",2014,2274
+"112","El Salvador","Americas","Central America","1.Police Personnel (Total)","2014","22995",0.22995,"80.2","4.1","29.1","3.3","0.8","48.5",2014,1784
+"113","El Salvador","Americas","Central America","11.Prison Personnel Male","2014","1578",NA,"80.2","4.1","29.1","3.3","0.8","48.5",2014,1784
+"114","El Salvador","Americas","Central America","12.Prison Personnel Female","2014","525",NA,"80.2","4.1","29.1","3.3","0.8","48.5",2014,1784
+"115","El Salvador","Americas","Central America","2.Police Personnel Male","2014","20368",NA,"80.2","4.1","29.1","3.3","0.8","48.5",2014,1784
+"116","El Salvador","Americas","Central America","3.Police Personnel Female","2014","2627",NA,"80.2","4.1","29.1","3.3","0.8","48.5",2014,1784
+"117","El Salvador","Americas","Central America","4.Professional Judges or Magistrates (Total)","2014","669",0.00669,"80.2","4.1","29.1","3.3","0.8","48.5",2014,1784
+"118","El Salvador","Americas","Central America","5.Professional Judges or Magistrates Male","2014","359",NA,"80.2","4.1","29.1","3.3","0.8","48.5",2014,1784
+"119","El Salvador","Americas","Central America","6.Professional Judges or Magistrates Female","2014","310",NA,"80.2","4.1","29.1","3.3","0.8","48.5",2014,1784
+"120","Estonia","Europe","Northern Europe","1.Police Personnel (Total)","2014","4089",0.04089,"69.2","0.7","25.2","1","0","2.4",2014,626
+"121","Estonia","Europe","Northern Europe","10.Prison Personnel (Total)","2014","1656",0.01656,"69.2","0.7","25.2","1","0","2.4",2014,626
+"122","Estonia","Europe","Northern Europe","2.Police Personnel Male","2014","2676",NA,"69.2","0.7","25.2","1","0","2.4",2014,626
+"123","Estonia","Europe","Northern Europe","3.Police Personnel Female","2014","1413",NA,"69.2","0.7","25.2","1","0","2.4",2014,626
+"124","Estonia","Europe","Northern Europe","4.Professional Judges or Magistrates (Total)","2014","230",0.0023,"69.2","0.7","25.2","1","0","2.4",2014,626
+"125","Estonia","Europe","Northern Europe","7.Prosecution Personnel (Total)","2014","167",0.00167,"69.2","0.7","25.2","1","0","2.4",2014,626
+"126","Estonia","Europe","Northern Europe","8.Prosecution Personnel Male","2014","49",NA,"69.2","0.7","25.2","1","0","2.4",2014,626
+"127","Estonia","Europe","Northern Europe","9.Prosecution Personnel Female","2014","118",NA,"69.2","0.7","25.2","1","0","2.4",2014,626
+"128","Georgia","Asia","Western Asia","1.Police Personnel (Total)","2014","9623",0.09623,"47.9","2.2","1.6","2.2","0","4.8",2014,1026
+"129","Georgia","Asia","Western Asia","11.Prison Personnel Male","2014","1472",NA,"47.9","2.2","1.6","2.2","0","4.8",2014,1026
+"130","Georgia","Asia","Western Asia","12.Prison Personnel Female","2014","579",NA,"47.9","2.2","1.6","2.2","0","4.8",2014,1026
+"131","Georgia","Asia","Western Asia","2.Police Personnel Male","2014","8724",NA,"47.9","2.2","1.6","2.2","0","4.8",2014,1026
+"132","Georgia","Asia","Western Asia","3.Police Personnel Female","2014","899",NA,"47.9","2.2","1.6","2.2","0","4.8",2014,1026
+"133","Georgia","Asia","Western Asia","4.Professional Judges or Magistrates (Total)","2014","259",0.00259,"47.9","2.2","1.6","2.2","0","4.8",2014,1026
+"134","Georgia","Asia","Western Asia","5.Professional Judges or Magistrates Male","2014","132",NA,"47.9","2.2","1.6","2.2","0","4.8",2014,1026
+"135","Georgia","Asia","Western Asia","6.Professional Judges or Magistrates Female","2014","121",NA,"47.9","2.2","1.6","2.2","0","4.8",2014,1026
+"136","Greece","Europe","Southern Europe","1.Police Personnel (Total)","2014","52205",0.52205,"59.9","0.8","19.3","1.1","0","24.9",2014,652
+"137","Greece","Europe","Southern Europe","2.Police Personnel Male","2014","45232",NA,"59.9","0.8","19.3","1.1","0","24.9",2014,652
+"138","Greece","Europe","Southern Europe","3.Police Personnel Female","2014","6973",NA,"59.9","0.8","19.3","1.1","0","24.9",2014,652
+"139","Greece","Europe","Southern Europe","4.Professional Judges or Magistrates (Total)","2014","3989",0.03989,"59.9","0.8","19.3","1.1","0","24.9",2014,652
+"140","Grenada","Americas","Caribbean","1.Police Personnel (Total)","2014","946",0.00946,"46.4","2.8","34.4","4.6","n.a.","20.3",2014,2350
+"141","Grenada","Americas","Caribbean","11.Prison Personnel Male","2014","126",NA,"46.4","2.8","34.4","4.6","n.a.","20.3",2014,2350
+"142","Grenada","Americas","Caribbean","12.Prison Personnel Female","2014","24",NA,"46.4","2.8","34.4","4.6","n.a.","20.3",2014,2350
+"143","Grenada","Americas","Caribbean","2.Police Personnel Male","2014","808",NA,"46.4","2.8","34.4","4.6","n.a.","20.3",2014,2350
+"144","Grenada","Americas","Caribbean","3.Police Personnel Female","2014","138",NA,"46.4","2.8","34.4","4.6","n.a.","20.3",2014,2350
+"145","Guatemala","Americas","Central America","1.Police Personnel (Total)","2014","30841",0.30841,"64.5","2.8","37.4","4","3.3","38",2014,1996
+"146","Guatemala","Americas","Central America","2.Police Personnel Male","2014","26776",NA,"64.5","2.8","37.4","4","3.3","38",2014,1996
+"147","Guatemala","Americas","Central America","3.Police Personnel Female","2014","4065",NA,"64.5","2.8","37.4","4","3.3","38",2014,1996
+"148","Guatemala","Americas","Central America","4.Professional Judges or Magistrates (Total)","2014","724",0.00724,"64.5","2.8","37.4","4","3.3","38",2014,1996
+"149","Guatemala","Americas","Central America","5.Professional Judges or Magistrates Male","2014","413",NA,"64.5","2.8","37.4","4","3.3","38",2014,1996
+"150","Guatemala","Americas","Central America","6.Professional Judges or Magistrates Female","2014","311",NA,"64.5","2.8","37.4","4","3.3","38",2014,1996
+"151","Guinea-Bissau","Africa","Western Africa","10.Prison Personnel (Total)","2014","102",0.00102,"56.3","1.7","35.3","3.3","0.3","29.6",2014,1577
+"152","Guinea-Bissau","Africa","Western Africa","11.Prison Personnel Male","2014","91",NA,"56.3","1.7","35.3","3.3","0.3","29.6",2014,1577
+"153","Guinea-Bissau","Africa","Western Africa","12.Prison Personnel Female","2014","11",NA,"56.3","1.7","35.3","3.3","0.3","29.6",2014,1577
+"154","Guyana","Americas","South America","11.Prison Personnel Male","2014","204",NA,"87","3.5","43.2","2.5","n.a.","35.7",2014,2387
+"155","Guyana","Americas","South America","12.Prison Personnel Female","2014","192",NA,"87","3.5","43.2","2.5","n.a.","35.7",2014,2387
+"156","Guyana","Americas","South America","4.Professional Judges or Magistrates (Total)","2014","33",0.00033,"87","3.5","43.2","2.5","n.a.","35.7",2014,2387
+"157","Guyana","Americas","South America","5.Professional Judges or Magistrates Male","2014","19",NA,"87","3.5","43.2","2.5","n.a.","35.7",2014,2387
+"158","Guyana","Americas","South America","6.Professional Judges or Magistrates Female","2014","14",NA,"87","3.5","43.2","2.5","n.a.","35.7",2014,2387
+"159","Honduras","Americas","Central America","11.Prison Personnel Male","2014","1253",NA,"64.1","4.5","27.7","7.2","0.2","29.7",2014,1976
+"160","Honduras","Americas","Central America","12.Prison Personnel Female","2014","353",NA,"64.1","4.5","27.7","7.2","0.2","29.7",2014,1976
+"161","Hungary","Europe","Eastern Europe","1.Police Personnel (Total)","2014","36887",0.36887,"33.7","4.3","10","0.8","2","4.1",2014,589
+"162","Hungary","Europe","Eastern Europe","11.Prison Personnel Male","2014","5654",NA,"33.7","4.3","10","0.8","2","4.1",2014,589
+"163","Hungary","Europe","Eastern Europe","12.Prison Personnel Female","2014","2441",NA,"33.7","4.3","10","0.8","2","4.1",2014,589
+"164","Hungary","Europe","Eastern Europe","2.Police Personnel Male","2014","28615",NA,"33.7","4.3","10","0.8","2","4.1",2014,589
+"165","Hungary","Europe","Eastern Europe","3.Police Personnel Female","2014","8272",NA,"33.7","4.3","10","0.8","2","4.1",2014,589
+"166","Hungary","Europe","Eastern Europe","4.Professional Judges or Magistrates (Total)","2014","2839",0.02839,"33.7","4.3","10","0.8","2","4.1",2014,589
+"167","Hungary","Europe","Eastern Europe","5.Professional Judges or Magistrates Male","2014","883",NA,"33.7","4.3","10","0.8","2","4.1",2014,589
+"168","Hungary","Europe","Eastern Europe","6.Professional Judges or Magistrates Female","2014","1956",NA,"33.7","4.3","10","0.8","2","4.1",2014,589
+"169","Hungary","Europe","Eastern Europe","7.Prosecution Personnel (Total)","2014","2326",0.02326,"33.7","4.3","10","0.8","2","4.1",2014,589
+"170","Hungary","Europe","Eastern Europe","8.Prosecution Personnel Male","2014","890",NA,"33.7","4.3","10","0.8","2","4.1",2014,589
+"171","Hungary","Europe","Eastern Europe","9.Prosecution Personnel Female","2014","1436",NA,"33.7","4.3","10","0.8","2","4.1",2014,589
+"172","Israel","Asia","Western Asia","11.Prison Personnel Male","2014","5512",NA,"55.7","0.8","10.1","1.2","0","1.7",2014,435
+"173","Israel","Asia","Western Asia","12.Prison Personnel Female","2014","1245",NA,"55.7","0.8","10.1","1.2","0","1.7",2014,435
+"174","Jamaica","Americas","Caribbean","1.Police Personnel (Total)","2014","11796",0.11796,"65.9","1.7","13.3","3.4","0.1","46.1",2014,2051
+"175","Jamaica","Americas","Caribbean","11.Prison Personnel Male","2014","1833",NA,"65.9","1.7","13.3","3.4","0.1","46.1",2014,2051
+"176","Jamaica","Americas","Caribbean","12.Prison Personnel Female","2014","412",NA,"65.9","1.7","13.3","3.4","0.1","46.1",2014,2051
+"177","Jamaica","Americas","Caribbean","4.Professional Judges or Magistrates (Total)","2014","97",0.00097,"65.9","1.7","13.3","3.4","0.1","46.1",2014,2051
+"178","Kazakhstan","Asia","Central Asia","1.Police Personnel (Total)","2014","41783",0.41783,"70.4","2.9","13.5","3.7","0.7","8.4",2014,250
+"179","Kazakhstan","Asia","Central Asia","4.Professional Judges or Magistrates (Total)","2014","2606",0.02606,"70.4","2.9","13.5","3.7","0.7","8.4",2014,250
+"180","Kazakhstan","Asia","Central Asia","5.Professional Judges or Magistrates Male","2014","1426",NA,"70.4","2.9","13.5","3.7","0.7","8.4",2014,250
+"181","Kazakhstan","Asia","Central Asia","6.Professional Judges or Magistrates Female","2014","1180",NA,"70.4","2.9","13.5","3.7","0.7","8.4",2014,250
+"182","Kenya","Africa","Eastern Africa","1.Police Personnel (Total)","2014","39218",0.39218,"79.6","4.4","22.7","4.9","1","7.9",2014,630
+"183","Kenya","Africa","Eastern Africa","11.Prison Personnel Male","2014","16489",NA,"79.6","4.4","22.7","4.9","1","7.9",2014,630
+"184","Kenya","Africa","Eastern Africa","12.Prison Personnel Female","2014","3098",NA,"79.6","4.4","22.7","4.9","1","7.9",2014,630
+"185","Kenya","Africa","Eastern Africa","2.Police Personnel Male","2014","34129",NA,"79.6","4.4","22.7","4.9","1","7.9",2014,630
+"186","Kenya","Africa","Eastern Africa","3.Police Personnel Female","2014","5089",NA,"79.6","4.4","22.7","4.9","1","7.9",2014,630
+"187","Kenya","Africa","Eastern Africa","4.Professional Judges or Magistrates (Total)","2014","623",0.00623,"79.6","4.4","22.7","4.9","1","7.9",2014,630
+"188","Kenya","Africa","Eastern Africa","5.Professional Judges or Magistrates Male","2014","357",NA,"79.6","4.4","22.7","4.9","1","7.9",2014,630
+"189","Kenya","Africa","Eastern Africa","6.Professional Judges or Magistrates Female","2014","266",NA,"79.6","4.4","22.7","4.9","1","7.9",2014,630
+"190","Latvia","Europe","Northern Europe","1.Police Personnel (Total)","2014","8813",0.08813,"61.4","1.2","16.5","1.6","0.4","9",2014,641
+"191","Latvia","Europe","Northern Europe","11.Prison Personnel Male","2014","1789",NA,"61.4","1.2","16.5","1.6","0.4","9",2014,641
+"192","Latvia","Europe","Northern Europe","12.Prison Personnel Female","2014","851",NA,"61.4","1.2","16.5","1.6","0.4","9",2014,641
+"193","Latvia","Europe","Northern Europe","2.Police Personnel Male","2014","5620",NA,"61.4","1.2","16.5","1.6","0.4","9",2014,641
+"194","Latvia","Europe","Northern Europe","3.Police Personnel Female","2014","3193",NA,"61.4","1.2","16.5","1.6","0.4","9",2014,641
+"195","Latvia","Europe","Northern Europe","4.Professional Judges or Magistrates (Total)","2014","430",0.0043,"61.4","1.2","16.5","1.6","0.4","9",2014,641
+"196","Latvia","Europe","Northern Europe","5.Professional Judges or Magistrates Male","2014","89",NA,"61.4","1.2","16.5","1.6","0.4","9",2014,641
+"197","Latvia","Europe","Northern Europe","6.Professional Judges or Magistrates Female","2014","341",NA,"61.4","1.2","16.5","1.6","0.4","9",2014,641
+"198","Lebanon","Asia","Western Asia","1.Police Personnel (Total)","2014","27434",0.27434,"21.8","1.1","4.2","5.4","0","33",2014,661
+"199","Lithuania","Europe","Northern Europe","1.Police Personnel (Total)","2014","9484",0.09484,"51.9","0.8","14.6","4.3","0.1","15.7",2014,656
+"200","Lithuania","Europe","Northern Europe","10.Prison Personnel (Total)","2014","3129",0.03129,"51.9","0.8","14.6","4.3","0.1","15.7",2014,656
+"201","Lithuania","Europe","Northern Europe","11.Prison Personnel Male","2014","1994",NA,"51.9","0.8","14.6","4.3","0.1","15.7",2014,656
+"202","Lithuania","Europe","Northern Europe","12.Prison Personnel Female","2014","1135",NA,"51.9","0.8","14.6","4.3","0.1","15.7",2014,656
+"203","Lithuania","Europe","Northern Europe","2.Police Personnel Male","2014","6208",NA,"51.9","0.8","14.6","4.3","0.1","15.7",2014,656
+"204","Lithuania","Europe","Northern Europe","3.Police Personnel Female","2014","3276",NA,"51.9","0.8","14.6","4.3","0.1","15.7",2014,656
+"205","Lithuania","Europe","Northern Europe","4.Professional Judges or Magistrates (Total)","2014","755",0.00755,"51.9","0.8","14.6","4.3","0.1","15.7",2014,656
+"206","Lithuania","Europe","Northern Europe","5.Professional Judges or Magistrates Male","2014","299",NA,"51.9","0.8","14.6","4.3","0.1","15.7",2014,656
+"207","Lithuania","Europe","Northern Europe","6.Professional Judges or Magistrates Female","2014","456",NA,"51.9","0.8","14.6","4.3","0.1","15.7",2014,656
+"208","Lithuania","Europe","Northern Europe","7.Prosecution Personnel (Total)","2014","720",0.0072,"51.9","0.8","14.6","4.3","0.1","15.7",2014,656
+"209","Lithuania","Europe","Northern Europe","8.Prosecution Personnel Male","2014","366",NA,"51.9","0.8","14.6","4.3","0.1","15.7",2014,656
+"210","Lithuania","Europe","Northern Europe","9.Prosecution Personnel Female","2014","354",NA,"51.9","0.8","14.6","4.3","0.1","15.7",2014,656
+"211","Madagascar","Africa","Eastern Africa","11.Prison Personnel Male","2014","1404",NA,"53.8","3.3","24.4","5.3","0.6","n.a.",2014,1513
+"212","Madagascar","Africa","Eastern Africa","12.Prison Personnel Female","2014","403",NA,"53.8","3.3","24.4","5.3","0.6","n.a.",2014,1513
+"213","Mauritius","Africa","Eastern Africa","4.Professional Judges or Magistrates (Total)","2014","69",0.00069,"49.5","8","24.5","10.5","0.5","41.5",2014,2041
+"214","Mauritius","Africa","Eastern Africa","5.Professional Judges or Magistrates Male","2014","28",NA,"49.5","8","24.5","10.5","0.5","41.5",2014,2041
+"215","Mauritius","Africa","Eastern Africa","6.Professional Judges or Magistrates Female","2014","41",NA,"49.5","8","24.5","10.5","0.5","41.5",2014,2041
+"216","Mexico","Americas","Central America","1.Police Personnel (Total)","2014","404713",4.04713,"42.8","2.2","40.3","3.6","0.7","29.1",2014,758
+"217","Mexico","Americas","Central America","10.Prison Personnel (Total)","2014","41419",0.41419,"42.8","2.2","40.3","3.6","0.7","29.1",2014,758
+"218","Mexico","Americas","Central America","11.Prison Personnel Male","2014","27456",NA,"42.8","2.2","40.3","3.6","0.7","29.1",2014,758
+"219","Mexico","Americas","Central America","12.Prison Personnel Female","2014","13963",NA,"42.8","2.2","40.3","3.6","0.7","29.1",2014,758
+"220","Mexico","Americas","Central America","2.Police Personnel Male","2014","335722",NA,"42.8","2.2","40.3","3.6","0.7","29.1",2014,758
+"221","Mexico","Americas","Central America","3.Police Personnel Female","2014","68991",NA,"42.8","2.2","40.3","3.6","0.7","29.1",2014,758
+"222","Mexico","Americas","Central America","4.Professional Judges or Magistrates (Total)","2014","1627",0.01627,"42.8","2.2","40.3","3.6","0.7","29.1",2014,758
+"223","Mexico","Americas","Central America","5.Professional Judges or Magistrates Male","2014","1021",NA,"42.8","2.2","40.3","3.6","0.7","29.1",2014,758
+"224","Mexico","Americas","Central America","6.Professional Judges or Magistrates Female","2014","606",NA,"42.8","2.2","40.3","3.6","0.7","29.1",2014,758
+"225","Mexico","Americas","Central America","7.Prosecution Personnel (Total)","2014","10491",0.10491,"42.8","2.2","40.3","3.6","0.7","29.1",2014,758
+"226","Mexico","Americas","Central America","8.Prosecution Personnel Male","2014","5573",NA,"42.8","2.2","40.3","3.6","0.7","29.1",2014,758
+"227","Mexico","Americas","Central America","9.Prosecution Personnel Female","2014","4918",NA,"42.8","2.2","40.3","3.6","0.7","29.1",2014,758
+"228","Mongolia","Asia","Eastern Asia","11.Prison Personnel Male","2014","2029",NA,"66.4","3.3","14.7","3.4","1.5","6.5",2014,241
+"229","Mongolia","Asia","Eastern Asia","12.Prison Personnel Female","2014","977",NA,"66.4","3.3","14.7","3.4","1.5","6.5",2014,241
+"230","Mongolia","Asia","Eastern Asia","4.Professional Judges or Magistrates (Total)","2014","475",0.00475,"66.4","3.3","14.7","3.4","1.5","6.5",2014,241
+"231","Mongolia","Asia","Eastern Asia","5.Professional Judges or Magistrates Male","2014","158",NA,"66.4","3.3","14.7","3.4","1.5","6.5",2014,241
+"232","Mongolia","Asia","Eastern Asia","6.Professional Judges or Magistrates Female","2014","317",NA,"66.4","3.3","14.7","3.4","1.5","6.5",2014,241
+"233","Montenegro","Europe","Southern Europe","1.Police Personnel (Total)","2014","4255",0.04255,"20.5","2.5","16","4.1","0","4.1",2012,241
+"234","Montenegro","Europe","Southern Europe","10.Prison Personnel (Total)","2014","484",0.00484,"20.5","2.5","16","4.1","0","4.1",2012,241
+"235","Montenegro","Europe","Southern Europe","11.Prison Personnel Male","2014","379",NA,"20.5","2.5","16","4.1","0","4.1",2012,241
+"236","Montenegro","Europe","Southern Europe","12.Prison Personnel Female","2014","105",NA,"20.5","2.5","16","4.1","0","4.1",2012,241
+"237","Montenegro","Europe","Southern Europe","2.Police Personnel Male","2014","3887",NA,"20.5","2.5","16","4.1","0","4.1",2012,241
+"238","Montenegro","Europe","Southern Europe","3.Police Personnel Female","2014","368",NA,"20.5","2.5","16","4.1","0","4.1",2012,241
+"239","Montenegro","Europe","Southern Europe","4.Professional Judges or Magistrates (Total)","2014","254",0.00254,"20.5","2.5","16","4.1","0","4.1",2012,241
+"240","Montenegro","Europe","Southern Europe","5.Professional Judges or Magistrates Male","2014","110",NA,"20.5","2.5","16","4.1","0","4.1",2012,241
+"241","Montenegro","Europe","Southern Europe","6.Professional Judges or Magistrates Female","2014","144",NA,"20.5","2.5","16","4.1","0","4.1",2012,241
+"242","Montenegro","Europe","Southern Europe","7.Prosecution Personnel (Total)","2014","109",0.00109,"20.5","2.5","16","4.1","0","4.1",2012,241
+"243","Morocco","Africa","Northern Africa","11.Prison Personnel Male","2014","7791",NA,"39.5","1.7","7.7","4","0.2","18.4",2014,346
+"244","Morocco","Africa","Northern Africa","12.Prison Personnel Female","2014","1188",NA,"39.5","1.7","7.7","4","0.2","18.4",2014,346
+"245","Myanmar","Asia","South-Eastern Asia","1.Police Personnel (Total)","2014","73944",0.73944,"37.9","1.7","13.1","1.1","0.1","5.2",2014,2091
+"246","Myanmar","Asia","South-Eastern Asia","2.Police Personnel Male","2014","70792",NA,"37.9","1.7","13.1","1.1","0.1","5.2",2014,2091
+"247","Myanmar","Asia","South-Eastern Asia","3.Police Personnel Female","2014","3152",NA,"37.9","1.7","13.1","1.1","0.1","5.2",2014,2091
+"248","North Macedonia","Europe","Southern Europe","1.Police Personnel (Total)","2014","9306",0.09306,"39.8","1","21.8","2.5","0","9",2014,619
+"249","North Macedonia","Europe","Southern Europe","2.Police Personnel Male","2014","8324",NA,"39.8","1","21.8","2.5","0","9",2014,619
+"250","North Macedonia","Europe","Southern Europe","3.Police Personnel Female","2014","982",NA,"39.8","1","21.8","2.5","0","9",2014,619
+"251","Panama","Americas","Central America","11.Prison Personnel Male","2014","551",NA,"36.3","4.4","6.5","5.6","0.5","8.2",2014,2928
+"252","Panama","Americas","Central America","12.Prison Personnel Female","2014","561",NA,"36.3","4.4","6.5","5.6","0.5","8.2",2014,2928
+"253","Panama","Americas","Central America","4.Professional Judges or Magistrates (Total)","2014","332",0.00332,"36.3","4.4","6.5","5.6","0.5","8.2",2014,2928
+"254","Panama","Americas","Central America","5.Professional Judges or Magistrates Male","2014","155",NA,"36.3","4.4","6.5","5.6","0.5","8.2",2014,2928
+"255","Panama","Americas","Central America","6.Professional Judges or Magistrates Female","2014","177",NA,"36.3","4.4","6.5","5.6","0.5","8.2",2014,2928
+"256","Paraguay","Americas","South America","1.Police Personnel (Total)","2014","16578",0.16578,"63.3","2.2","16.5","2.3","0.1","14.1",2014,1130
+"257","Paraguay","Americas","South America","11.Prison Personnel Male","2014","1198",NA,"63.3","2.2","16.5","2.3","0.1","14.1",2014,1130
+"258","Paraguay","Americas","South America","12.Prison Personnel Female","2014","317",NA,"63.3","2.2","16.5","2.3","0.1","14.1",2014,1130
+"259","Paraguay","Americas","South America","2.Police Personnel Male","2014","15275",NA,"63.3","2.2","16.5","2.3","0.1","14.1",2014,1130
+"260","Paraguay","Americas","South America","3.Police Personnel Female","2014","1303",NA,"63.3","2.2","16.5","2.3","0.1","14.1",2014,1130
+"261","Paraguay","Americas","South America","4.Professional Judges or Magistrates (Total)","2014","769",0.00769,"63.3","2.2","16.5","2.3","0.1","14.1",2014,1130
+"262","Paraguay","Americas","South America","5.Professional Judges or Magistrates Male","2014","439",NA,"63.3","2.2","16.5","2.3","0.1","14.1",2014,1130
+"263","Paraguay","Americas","South America","6.Professional Judges or Magistrates Female","2014","330",NA,"63.3","2.2","16.5","2.3","0.1","14.1",2014,1130
+"264","Peru","Americas","South America","1.Police Personnel (Total)","2014","105084",1.05084,"70.8","2.3","18.9","2.8","0.7","25.7",2014,1738
+"265","Peru","Americas","South America","11.Prison Personnel Male","2014","4574",NA,"70.8","2.3","18.9","2.8","0.7","25.7",2014,1738
+"266","Peru","Americas","South America","12.Prison Personnel Female","2014","2101",NA,"70.8","2.3","18.9","2.8","0.7","25.7",2014,1738
+"267","Peru","Americas","South America","2.Police Personnel Male","2014","90370",NA,"70.8","2.3","18.9","2.8","0.7","25.7",2014,1738
+"268","Peru","Americas","South America","3.Police Personnel Female","2014","14714",NA,"70.8","2.3","18.9","2.8","0.7","25.7",2014,1738
+"269","Peru","Americas","South America","4.Professional Judges or Magistrates (Total)","2014","896",0.00896,"70.8","2.3","18.9","2.8","0.7","25.7",2014,1738
+"270","Peru","Americas","South America","7.Prosecution Personnel (Total)","2014","5258",0.05258,"70.8","2.3","18.9","2.8","0.7","25.7",2014,1738
+"271","Peru","Americas","South America","8.Prosecution Personnel Male","2014","2899",NA,"70.8","2.3","18.9","2.8","0.7","25.7",2014,1738
+"272","Peru","Americas","South America","9.Prosecution Personnel Female","2014","2359",NA,"70.8","2.3","18.9","2.8","0.7","25.7",2014,1738
+"273","Philippines","Asia","South-Eastern Asia","1.Police Personnel (Total)","2014","147711",1.47711,"54.9","1.5","17","1.3","2.1","10.9",2014,2348
+"274","Philippines","Asia","South-Eastern Asia","11.Prison Personnel Male","2014","1971",NA,"54.9","1.5","17","1.3","2.1","10.9",2014,2348
+"275","Philippines","Asia","South-Eastern Asia","12.Prison Personnel Female","2014","600",NA,"54.9","1.5","17","1.3","2.1","10.9",2014,2348
+"276","Philippines","Asia","South-Eastern Asia","2.Police Personnel Male","2014","128158",NA,"54.9","1.5","17","1.3","2.1","10.9",2014,2348
+"277","Philippines","Asia","South-Eastern Asia","3.Police Personnel Female","2014","21175",NA,"54.9","1.5","17","1.3","2.1","10.9",2014,2348
+"278","Philippines","Asia","South-Eastern Asia","4.Professional Judges or Magistrates (Total)","2014","1663",0.01663,"54.9","1.5","17","1.3","2.1","10.9",2014,2348
+"279","Philippines","Asia","South-Eastern Asia","5.Professional Judges or Magistrates Male","2014","962",NA,"54.9","1.5","17","1.3","2.1","10.9",2014,2348
+"280","Philippines","Asia","South-Eastern Asia","6.Professional Judges or Magistrates Female","2014","701",NA,"54.9","1.5","17","1.3","2.1","10.9",2014,2348
+"281","Philippines","Asia","South-Eastern Asia","7.Prosecution Personnel (Total)","2014","1857",0.01857,"54.9","1.5","17","1.3","2.1","10.9",2014,2348
+"282","Poland","Europe","Eastern Europe","1.Police Personnel (Total)","2014","98861",0.98861,"66.5","1.8","16.8","2.2","0.9","8.2",2014,600
+"283","Poland","Europe","Eastern Europe","10.Prison Personnel (Total)","2014","30349",0.30349,"66.5","1.8","16.8","2.2","0.9","8.2",2014,600
+"284","Poland","Europe","Eastern Europe","11.Prison Personnel Male","2014","23939",NA,"66.5","1.8","16.8","2.2","0.9","8.2",2014,600
+"285","Poland","Europe","Eastern Europe","12.Prison Personnel Female","2014","6410",NA,"66.5","1.8","16.8","2.2","0.9","8.2",2014,600
+"286","Poland","Europe","Eastern Europe","2.Police Personnel Male","2014","83877",NA,"66.5","1.8","16.8","2.2","0.9","8.2",2014,600
+"287","Poland","Europe","Eastern Europe","3.Police Personnel Female","2014","14984",NA,"66.5","1.8","16.8","2.2","0.9","8.2",2014,600
+"288","Poland","Europe","Eastern Europe","4.Professional Judges or Magistrates (Total)","2014","9968",0.09968,"66.5","1.8","16.8","2.2","0.9","8.2",2014,600
+"289","Poland","Europe","Eastern Europe","5.Professional Judges or Magistrates Male","2014","3638",NA,"66.5","1.8","16.8","2.2","0.9","8.2",2014,600
+"290","Poland","Europe","Eastern Europe","6.Professional Judges or Magistrates Female","2014","6330",NA,"66.5","1.8","16.8","2.2","0.9","8.2",2014,600
+"291","Poland","Europe","Eastern Europe","7.Prosecution Personnel (Total)","2014","6226",0.06226,"66.5","1.8","16.8","2.2","0.9","8.2",2014,600
+"292","Romania","Europe","Eastern Europe","1.Police Personnel (Total)","2014","52907",0.52907,"63.2","2","16.5","2.8","0.3","22.3",2014,637
+"293","Romania","Europe","Eastern Europe","10.Prison Personnel (Total)","2014","12053",0.12053,"63.2","2","16.5","2.8","0.3","22.3",2014,637
+"294","Romania","Europe","Eastern Europe","11.Prison Personnel Male","2014","9544",NA,"63.2","2","16.5","2.8","0.3","22.3",2014,637
+"295","Romania","Europe","Eastern Europe","12.Prison Personnel Female","2014","2509",NA,"63.2","2","16.5","2.8","0.3","22.3",2014,637
+"296","Romania","Europe","Eastern Europe","2.Police Personnel Male","2014","45537",NA,"63.2","2","16.5","2.8","0.3","22.3",2014,637
+"297","Romania","Europe","Eastern Europe","3.Police Personnel Female","2014","7370",NA,"63.2","2","16.5","2.8","0.3","22.3",2014,637
+"298","Romania","Europe","Eastern Europe","4.Professional Judges or Magistrates (Total)","2014","7026",0.07026,"63.2","2","16.5","2.8","0.3","22.3",2014,637
+"299","Romania","Europe","Eastern Europe","5.Professional Judges or Magistrates Male","2014","2478",NA,"63.2","2","16.5","2.8","0.3","22.3",2014,637
+"300","Romania","Europe","Eastern Europe","6.Professional Judges or Magistrates Female","2014","4548",NA,"63.2","2","16.5","2.8","0.3","22.3",2014,637
+"301","Romania","Europe","Eastern Europe","7.Prosecution Personnel (Total)","2014","2588",0.02588,"63.2","2","16.5","2.8","0.3","22.3",2014,637
+"302","Romania","Europe","Eastern Europe","8.Prosecution Personnel Male","2014","1235",NA,"63.2","2","16.5","2.8","0.3","22.3",2014,637
+"303","Romania","Europe","Eastern Europe","9.Prosecution Personnel Female","2014","1353",NA,"63.2","2","16.5","2.8","0.3","22.3",2014,637
+"304","Serbia","Europe","Southern Europe","1.Police Personnel (Total)","2014","44632",0.44632,"30","1.5","13.1","1.8","0.1","7.4",2012,686
+"305","Serbia","Europe","Southern Europe","11.Prison Personnel Male","2014","3184",NA,"30","1.5","13.1","1.8","0.1","7.4",2012,686
+"306","Serbia","Europe","Southern Europe","12.Prison Personnel Female","2014","1059",NA,"30","1.5","13.1","1.8","0.1","7.4",2012,686
+"307","Serbia","Europe","Southern Europe","2.Police Personnel Male","2014","34512",NA,"30","1.5","13.1","1.8","0.1","7.4",2012,686
+"308","Serbia","Europe","Southern Europe","3.Police Personnel Female","2014","10120",NA,"30","1.5","13.1","1.8","0.1","7.4",2012,686
+"309","Serbia","Europe","Southern Europe","4.Professional Judges or Magistrates (Total)","2014","2884",0.02884,"30","1.5","13.1","1.8","0.1","7.4",2012,686
+"310","Serbia","Europe","Southern Europe","5.Professional Judges or Magistrates Male","2014","864",NA,"30","1.5","13.1","1.8","0.1","7.4",2012,686
+"311","Serbia","Europe","Southern Europe","6.Professional Judges or Magistrates Female","2014","2020",NA,"30","1.5","13.1","1.8","0.1","7.4",2012,686
+"312","Slovenia","Europe","Southern Europe","1.Police Personnel (Total)","2014","7014",0.07014,"52.4","0.4","11","0.7","0","10.4",2014,1162
+"313","Slovenia","Europe","Southern Europe","11.Prison Personnel Male","2014","632",NA,"52.4","0.4","11","0.7","0","10.4",2014,1162
+"314","Slovenia","Europe","Southern Europe","12.Prison Personnel Female","2014","200",NA,"52.4","0.4","11","0.7","0","10.4",2014,1162
+"315","Slovenia","Europe","Southern Europe","2.Police Personnel Male","2014","5914",NA,"52.4","0.4","11","0.7","0","10.4",2014,1162
+"316","Slovenia","Europe","Southern Europe","3.Police Personnel Female","2014","1100",NA,"52.4","0.4","11","0.7","0","10.4",2014,1162
+"317","Slovenia","Europe","Southern Europe","4.Professional Judges or Magistrates (Total)","2014","940",0.0094,"52.4","0.4","11","0.7","0","10.4",2014,1162
+"318","Slovenia","Europe","Southern Europe","5.Professional Judges or Magistrates Male","2014","205",NA,"52.4","0.4","11","0.7","0","10.4",2014,1162
+"319","Slovenia","Europe","Southern Europe","6.Professional Judges or Magistrates Female","2014","735",NA,"52.4","0.4","11","0.7","0","10.4",2014,1162
+"320","South Africa","Africa","Southern Africa","4.Professional Judges or Magistrates (Total)","2014","1996",0.01996,"76.4","2.1","42.6","2.4","0.8","38",2014,495
+"321","South Africa","Africa","Southern Africa","5.Professional Judges or Magistrates Male","2014","1248",NA,"76.4","2.1","42.6","2.4","0.8","38",2014,495
+"322","South Africa","Africa","Southern Africa","6.Professional Judges or Magistrates Female","2014","748",NA,"76.4","2.1","42.6","2.4","0.8","38",2014,495
+"323","Sweden","Europe","Northern Europe","1.Police Personnel (Total)","2014","20051",0.20051,"85.4","0.4","39.8","0.8","0","6.9",2014,624
+"324","Sweden","Europe","Northern Europe","10.Prison Personnel (Total)","2014","6013",0.06013,"85.4","0.4","39.8","0.8","0","6.9",2014,624
+"325","Sweden","Europe","Northern Europe","11.Prison Personnel Male","2014","3608",NA,"85.4","0.4","39.8","0.8","0","6.9",2014,624
+"326","Sweden","Europe","Northern Europe","12.Prison Personnel Female","2014","2405",NA,"85.4","0.4","39.8","0.8","0","6.9",2014,624
+"327","Sweden","Europe","Northern Europe","2.Police Personnel Male","2014","13917",NA,"85.4","0.4","39.8","0.8","0","6.9",2014,624
+"328","Sweden","Europe","Northern Europe","3.Police Personnel Female","2014","6134",NA,"85.4","0.4","39.8","0.8","0","6.9",2014,624
+"329","Sweden","Europe","Northern Europe","4.Professional Judges or Magistrates (Total)","2014","2156",0.02156,"85.4","0.4","39.8","0.8","0","6.9",2014,624
+"330","Thailand","Asia","South-Eastern Asia","1.Police Personnel (Total)","2014","209150",2.0915,"24.2","3.5","1.8","0.8","0.1","0.6",2014,1622
+"331","Thailand","Asia","South-Eastern Asia","11.Prison Personnel Male","2014","9101",NA,"24.2","3.5","1.8","0.8","0.1","0.6",2014,1622
+"332","Thailand","Asia","South-Eastern Asia","12.Prison Personnel Female","2014","2408",NA,"24.2","3.5","1.8","0.8","0.1","0.6",2014,1622
+"333","Thailand","Asia","South-Eastern Asia","4.Professional Judges or Magistrates (Total)","2014","4320",0.0432,"24.2","3.5","1.8","0.8","0.1","0.6",2014,1622
+"334","Thailand","Asia","South-Eastern Asia","5.Professional Judges or Magistrates Male","2014","3132",NA,"24.2","3.5","1.8","0.8","0.1","0.6",2014,1622
+"335","Thailand","Asia","South-Eastern Asia","6.Professional Judges or Magistrates Female","2014","1188",NA,"24.2","3.5","1.8","0.8","0.1","0.6",2014,1622
+"336","Trinidad and Tobago","Americas","Caribbean","1.Police Personnel (Total)","2014","6462",0.06462,"74","1.5","28.3","1.7","0.1","34.2",2014,2200
+"337","Trinidad and Tobago","Americas","Caribbean","11.Prison Personnel Male","2014","2911",NA,"74","1.5","28.3","1.7","0.1","34.2",2014,2200
+"338","Trinidad and Tobago","Americas","Caribbean","12.Prison Personnel Female","2014","241",NA,"74","1.5","28.3","1.7","0.1","34.2",2014,2200
+"339","Trinidad and Tobago","Americas","Caribbean","2.Police Personnel Male","2014","4864",NA,"74","1.5","28.3","1.7","0.1","34.2",2014,2200
+"340","Trinidad and Tobago","Americas","Caribbean","3.Police Personnel Female","2014","1598",NA,"74","1.5","28.3","1.7","0.1","34.2",2014,2200
+"341","Trinidad and Tobago","Americas","Caribbean","4.Professional Judges or Magistrates (Total)","2014","91",0.00091,"74","1.5","28.3","1.7","0.1","34.2",2014,2200
+"342","Trinidad and Tobago","Americas","Caribbean","5.Professional Judges or Magistrates Male","2014","38",NA,"74","1.5","28.3","1.7","0.1","34.2",2014,2200
+"343","Trinidad and Tobago","Americas","Caribbean","6.Professional Judges or Magistrates Female","2014","53",NA,"74","1.5","28.3","1.7","0.1","34.2",2014,2200
+"344","Tunisia","Africa","Northern Africa","4.Professional Judges or Magistrates (Total)","2014","1799",0.01799,"68.7","1.8","12","9.8","0","8.8",2014,207
+"345","Tunisia","Africa","Northern Africa","5.Professional Judges or Magistrates Male","2014","1138",NA,"68.7","1.8","12","9.8","0","8.8",2014,207
+"346","Tunisia","Africa","Northern Africa","6.Professional Judges or Magistrates Female","2014","661",NA,"68.7","1.8","12","9.8","0","8.8",2014,207
+"347","Tunisia","Africa","Northern Africa","7.Prosecution Personnel (Total)","2014","366",0.00366,"68.7","1.8","12","9.8","0","8.8",2014,207
+"348","Tunisia","Africa","Northern Africa","8.Prosecution Personnel Male","2014","329",NA,"68.7","1.8","12","9.8","0","8.8",2014,207
+"349","Tunisia","Africa","Northern Africa","9.Prosecution Personnel Female","2014","37",NA,"68.7","1.8","12","9.8","0","8.8",2014,207
+"350","Turkey","Asia","Western Asia","11.Prison Personnel Male","2014","41662",NA,"58.2","3.3","6.8","4.7","0.1","5.7",2014,593
+"351","Turkey","Asia","Western Asia","12.Prison Personnel Female","2014","4616",NA,"58.2","3.3","6.8","4.7","0.1","5.7",2014,593
+"352","Turkey","Asia","Western Asia","4.Professional Judges or Magistrates (Total)","2014","10471",0.10471,"58.2","3.3","6.8","4.7","0.1","5.7",2014,593
+"353","Turkey","Asia","Western Asia","5.Professional Judges or Magistrates Male","2014","6769",NA,"58.2","3.3","6.8","4.7","0.1","5.7",2014,593
+"354","Turkey","Asia","Western Asia","6.Professional Judges or Magistrates Female","2014","3702",NA,"58.2","3.3","6.8","4.7","0.1","5.7",2014,593
+"355","Uganda","Africa","Eastern Africa","1.Police Personnel (Total)","2014","45059",0.45059,"55.3","8.8","15.8","7.2","2.1","22",2014,1180
+"356","Uganda","Africa","Eastern Africa","11.Prison Personnel Male","2014","5748",NA,"55.3","8.8","15.8","7.2","2.1","22",2014,1180
+"357","Uganda","Africa","Eastern Africa","12.Prison Personnel Female","2014","2254",NA,"55.3","8.8","15.8","7.2","2.1","22",2014,1180
+"358","Uruguay","Americas","South America","1.Police Personnel (Total)","2014","22917",0.22917,"77.3","1.3","28.1","2.1","0","27.4",2014,1300
+"359","Uruguay","Americas","South America","2.Police Personnel Male","2014","18233",NA,"77.3","1.3","28.1","2.1","0","27.4",2014,1300
+"360","Uruguay","Americas","South America","3.Police Personnel Female","2014","4684",NA,"77.3","1.3","28.1","2.1","0","27.4",2014,1300

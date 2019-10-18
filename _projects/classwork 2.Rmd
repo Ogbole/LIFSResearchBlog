@@ -1,0 +1,54 @@
+---
+title: "Classwork 2"
+author: "Alex"
+date: "26/09/2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+```{r }
+#install.packages("dplyr")
+#install.packages("xlsx")
+library("xlsx")
+#1. Download, clean and load the data into R-Studio.
+#Data sets downloaded and cleaned and loaded into R as done below
+CJP<- read.xlsx(file="cjp.xlsx", sheetIndex=1, header=T, colClasses = NA)
+CJP
+ExRes<- read.xlsx(file="ExportedResults.xlsx",sheetIndex=1, header=T, colClasses =NA)
+ExRes
+Temp<- read.xlsx(file="Rainfall.xlsx",sheetIndex=1, header=T, colClasses = NA)
+Temp
+
+#2. For each dataset, show the countries represented.
+
+countries1<- CJP[CJP$Country,]
+countries1
+countries2 <- ExRes[ExRes$Country,]
+countries2
+countries3<- Temp[Temp$Country,]
+countries3
+
+#3. Using Data Frames, combine features for each country that is listed in ALL data sets (remove countries not listed in all datasets)
+CJPDF<- as.data.frame(CJP,row.names = NULL,optional=FALSE)
+CJPDF
+ExResDF<- as.data.frame(ExRes,row.names = NULL,optional=F)
+ExResDF
+TempDF<- as.data.frame(Temp,row.names = NULL, optional=F)
+TempDF
+
+# features for each data set is country and yeaR
+
+library(dplyr)
+combbCJP<- CJPDF[CJPDF$Year=="2014",]
+combbCJP
+
+combo<- Reduce(merge, list(CJPDF,ExResDF,TempDF,combbCJP))
+combo
+
+unique(combo)
+
+#5. Export the final combined data frame as a CSV file
+write.csv(x = combo,file = "Combined.csv", sep = ",", row.names = TRUE)
+
+```
+
