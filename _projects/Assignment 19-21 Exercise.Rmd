@@ -1,0 +1,370 @@
+---
+title: "Exercise 19-21 Assignment"
+author: "Alex"
+date: "16/10/2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+#Chapter 19 Exercise 19.1
+```{r}
+## 19.1 
+#Storing in two vectors records of depth and site of observation
+Dpth <- c(93,120,65,105,115,82,99,87,100,90,78,95,93,88,110,85,45,80,28,75,70,65,55,50,40,100,75,65,40,73,65,50,30,45,50,45,55,96,58,95,90,65,80,85,95,82)
+Sites <- c(rep("I",15),rep("II",10),rep("III",12),rep("IV",9))
+# Question a
+Dpth_means <- tapply(Dpth,INDEX=Sites,FUN=mean)
+Dpth_means
+boxplot(Dpth~Sites)
+points(1:4,Dpth_means,pch=4, cex=1.5)
+# Question b
+#diagnostic checks for normality & equality of Variances
+Dpth_meancen <- Dpth-rep(Dpth_means,table(Sites))
+Dpth_meancen
+qqnorm(Dpth_meancen, main = "Normal QQ Plot of Depth Residuals")
+qqline(Dpth_meancen) 
+#ii Variance
+sds <- tapply(Dpth,INDEX=Sites,FUN=sd)
+sds
+eqlvar<- max(sds)/min(sds)
+eqlvar# Less than 2 so variances can be assumed equal according to the rule-of-thumb.
+# Question c
+summary(aov(Dpth~Sites)) # Small p-value. Very strong evidence against H0. There is evidence to reject the null and conclude there is a difference in the mean depths of the finds across the four sites.
+# Question d
+data("iris")
+meanval <- tapply(iris$Sepal.Length,iris$Species,FUN=mean)
+mc <- iris$Sepal.Length-meanval[as.numeric(iris$Species)]
+qqnorm(mc)
+qqline(mc) 
+tapply(iris$Sepal.Length,iris$Species,sd) # max(sd)/min(sd) < 2 so variances may be assumed equal.
+meanval2 <- tapply(iris$Sepal.Width,iris$Species,FUN=mean)
+mc <- iris$Sepal.Width-meanval2[as.numeric(iris$Species)]
+qqnorm(mc)
+qqline(mc) # Looks approximately normal.
+tapply(iris$Sepal.Width,iris$Species,FUN=sd) # max(sd)/min(sd) < 2 so variances may be assumed equal.
+meanval3 <- tapply(iris$Petal.Length,iris$Species,FUN=mean)
+mc <- iris$Petal.Length-meanval3[as.numeric(iris$Species)]
+qqnorm(mc)
+qqline(mc) # Looks approximately normal; some deviation though.
+tapply(iris$Petal.Length,iris$Species,sd) # max(sd)/min(sd) > 2 so variances may not be assumed equal.
+meanval4 <- tapply(iris$Petal.Width,iris$Species,FUN=mean)
+mc <- iris$Petal.Width-meanval4[as.numeric(iris$Species)]
+qqnorm(mc)
+qqline(mc) # Looks approximately normal.
+tapply(iris$Petal.Width,iris$Species,FUN=sd) # max(sd)/min(sd) > 2 so variances may not be assumed equal.
+# Question e
+summary(aov(Sepal.Length~Species,data=iris))
+summary(aov(Sepal.Width~Species,data=iris))
+# Both p-values are very small. Strong evidence to reject H0 and conclude that the mean sepal lengths and widths do vary according to species.
+```
+
+#Exercise 19.2
+```{r}
+
+## 19.2
+# Question a
+data("quakes")
+depth_fac_events <- cut(quakes$depth,breaks=c(0,200,400,680))
+depth_fac_events
+table(depth_fac_events)
+# Question b
+mean_val <- tapply(quakes$stations,depth_fac_events,FUN=mean)
+mc <- quakes$stations-mean_val[as.numeric(depth_fac_events)]
+hist(mc)
+qqnorm(mc)
+qqline(mc) # Data appear non-normal... Kruskal-Wallis preferred over parametric one-way ANOVA
+# Question c
+kruskal.test(quakes$stations~depth_fac_events) # P-value > 0.01 (just barely); retain null. Minimal evidence, at best, of a difference in median number of detecting stations according to depth_fac_events categories.
+#Question d
+library("MASS")
+cars_mean_Lens <- aggregate(Cars93$Length,by=list(Cars93$AirBags,Cars93$Man.trans.avail),FUN=mean)
+cars_mean_Lens
+# Question e
+Result_of_Inter<- interaction.plot(x.factor=cars_mean_Lens[,1],trace.factor=cars_mean_Lens[,2],respons=cars_mean_Lens$x,trace.label="Manual avail.",xlab="Airbags",ylab="Mean length")
+Result_of_Inter
+# There is some visual indication of interactive behavior owing to the non-parallel nature of the two lines; but rememeber there are no measures of variability of the various group means displayed on this plot
+#Question f
+summary(aov(Length~AirBags+Man.trans.avail+AirBags:Man.trans.avail,data=Cars93)) # No formal statistical evidence of an interactive effect. Strong evidence of main effects, however -- both 'Airbags' and 'Man.trans.avail' appear to be related to car length.
+```
+
+#Chapter 20 Exercise 20.1
+```{r}
+## 20.1 
+library("MASS")
+survfit <- lm(Height~Wr.Hnd,data=survey)
+survfit
+# Question a
+Pred_CI<- predict(survfit,newdata=data.frame(Wr.Hnd=c(12,15.2,17,19.9)),interval="confidence",level=0.99)
+Pred_CI
+# Question b
+incomplete.obs <- which(is.na(survey$Height)|is.na(survey$Wr.Hnd))
+rho.xy <- cor(survey$Wr.Hnd,survey$Height,use="complete.obs")
+b1 <- sd(survey$Height[-incomplete.obs])/sd(survey$Wr.Hnd[-incomplete.obs])*rho.xy
+b1
+b0 <- mean(survey$Height[-incomplete.obs])-b1*mean(survey$Wr.Hnd[-incomplete.obs])
+b0
+# Question c
+# i
+Fitted_Reg_model<- plot(survey$Height~survey$Pulse,xlab="Pulse rate (bpm)",ylab="Height (cm)", main="Mean Student Height\n From their Pulse Rates")
+Fitted_Reg_model
+survfit <- lm(Height~Pulse,data=survey)
+survfit # Model equation is  y = 177.86 - 0.072x
+abline(survfit,lwd=2)
+# ii
+summary(survfit) # For each additional bpm, the mean student height is estimated to decrease by 0.072cm; p-value for slope is 0.275. No evidence to reject H0. Insufficient evidence to conclude that pulse rate affects mean student height.
+CI_90<- confint(survfit,level=0.9)
+CI_90
+# iii
+xseq <- data.frame(Pulse=seq(30,110,length=100))
+survfit.ci <- predict(survfit,newdata=xseq,interval="confidence",level=0.9)
+survfit.pi <- predict(survfit,newdata=xseq,interval="prediction",level=0.9)
+lines(xseq[,1],survfit.ci[,2],lty=2)
+lines(xseq[,1],survfit.ci[,3],lty=2)
+lines(xseq[,1],survfit.pi[,2],lty=2,col="blue")
+lines(xseq[,1],survfit.pi[,3],lty=2,col="green")
+legend("topleft",legend=c("90% CI","90% PI"),lty=2,col=c("black","yellow"))
+# iv
+incomplete.obs <- which(is.na(survey$Height)|is.na(survey$Pulse))
+abline(h=mean(survey$Height[-incomplete.obs]),col=2,lty=3,lwd=3) # The line sits in the middle of the CI bands without breaching them. This supports the conclusion that pulse rate is not significantly related to mean student height.
+# Question d
+data("mtcars")
+?mtcars
+fuel_effic<- plot(mtcars$mpg~mtcars$wt,xlab="Weight (lbs/1000)",ylab="MPG", main="Fuel Efficiency\n in Miles per gallon")
+fuel_effic
+# Question e
+carfit <- lm(mpg~wt,data=mtcars)
+carfit
+abline(carfit,lwd=2)
+# Question f
+summary(carfit) # mean MPG = 37.28 - 5.34*weight # For each extra 1000lbs of weight, the mean MPG decreases by 5.34; p-value for slope is very small---result is statistically significant---strong evidence to suggest that mean MPG changes according to weight (for cars of this era).
+# Question g
+PI_car<- predict(carfit,newdata=data.frame(wt=6),interval="prediction",level=0.95) 
+PI_car# Predicting at 6000lbs seems untrustworthy. Extrapolation is far enough outside the range of the observed data such that the associated PI has a lower limit that is negative, which makes no sense in terms of the response variable of MPG.
+```
+
+# Exercise 20.2
+```{r}
+
+## 20.2 
+library("MASS")
+# Question a
+Count_of_stud<- table(survey$Exer)
+Count_of_stud
+Exer_plt<- boxplot(survey$Height~survey$Exer, xlab = "Exercise", ylab = "Height", main="Student Height vs Exercise")
+Exer_plt
+# Question b
+survfit <- lm(Height~Exer,data=survey)
+survfit
+summary(survfit) # The reference level of the predictor defaults to the first level of the factor, which in this case (as is the default in R) is alphabetically arranged to be 'Freq'.
+# Question c
+# It appears that both of the levels for which coefficient estimates were obtained, yielded p-values that suggest evidence the coefficients are different to zero.
+# The coefficient corresponding to 'some' has the smallest p-value of the two additive dummy levels.
+# The negative point estimates of both estimates tell us that the model predicts the effect on height of being in either the 'none' or the 'some' categories, when compared to the 'frequent' category, is one of a decrease. In other words, it appears those who exercise less than 'frequent' are shorter on average.
+# The shortest mean height is reserved for those in the 'none' exercise category; the estimated coefficient (-5.58) is more extreme than the coefficient for 'some' (-4.21).
+# Overall statistical significance of the predictor (in terms of the effect of exercise on height) is supported by the global (omnibus F-test) P-value of 0.0035.
+# Question d
+Mheight_of_each <- factor(levels(survey$Exer))
+Mheight_of_each
+Res_of_Pred<- predict(survfit,newdata=data.frame(Exer=Mheight_of_each),interval="prediction")
+Res_of_Pred
+# Question e
+summary(aov(Height~Exer,data=survey)) # Same 'global' P-value as the lm model summary. There is evidence to suggest mean student height differs according to exercise frequency.
+#Question f
+ExerReordered <- relevel(survey$Exer,ref="None")
+levels(ExerReordered)
+summary(aov(Height~ExerReordered,data=survey)) # There is no change to the omnibus F-test if we reorder the the reference level of exercise to be 'none', and nor should we expect there to be. The global test of a difference between the means doesn't depend on what we set the baseline value of the response to be.
+#Question g
+carfit <- lm(qsec~gear,data=mtcars)
+summary(carfit) # The effect of 'gear' when treated as a continuous variable is interpreted as a decrease in quarter-mile time of around 0.5 seconds, on average, for each additional forward gear. However, there is no evidence that this effect is different to zero, with a high P-value of 0.243 (and a similar global p-value)
+#Question h
+carfit2 <- lm(qsec~factor(gear),data=mtcars)
+summary(carfit2) # The effect of 'gear' when treated as a categorical variable now appears to be statistically significant. Having 4 gears (as opposed to the reference level of 3) seems to increase the mean quarter-mile time by 1.27 seconds, having 5 gears appears to decrease the mean quarter-mile time by 2.05 seconds. The global (omnibus F-test) p-value is also quite small, yielding evidence in support of an effect of 'gear' on 'qsec'.
+# Question i
+plot(mtcars$qsec~mtcars$gear,xlab="No. of Gears",ylab="Quarter-mile Time",main="Difference in Model")
+abline(carfit,lwd=2) # The plot indicates clearly that the difference between the two models is due to the fact that the relationship cannot be well explained by a continuous straight line. The first model therefore is incapable of realistically capturing the effect of changing categories in 'gear' on 'qsec'.
+
+```
+
+#Chapter 21 Exercise 21.1
+```{r}
+## 21.1 
+library("MASS")
+?cats
+# Question a
+Catsweight<- plot(cats$Bwt,cats$Hwt,col=cats$Sex,xlab="Body weight (kg)",ylab="Heart weight (g)", main= "Cat Female and Male\n Heart Weight vs Body Weight")
+legend("topleft",legend=c("female","male"),col=c(1,2),pch=c(1,1))
+Catsweight
+# Females are black, since the levels of the factor vector cats$Sex are in the alphabetical order of "F" "M", which R interprets as 1 and 2 when this factor vector is passed to the 'col' argument of 'plot'.
+# Question b
+catsfit <- lm(Hwt~Bwt+Sex,data=cats)
+catsfit
+summary(catsfit)
+# i
+# "Mean heart weight" = -0.415 + 4.076*"Body weight" - 0.082*"is male"
+# For cats of the same sex, the effect of an additional kg of body weight is, on average, an extra 4.076 grams of heart weight. For cats of the same body weight, the heart weight of a male is, on average, 0.082 grams lighter than that of a female.
+# The model states the effect of body weight is highly statistically significant -- there is evidence to believe body weight does indeed affect heart weight. However, the effect of sex is not significant. There is no statistical evidence to suggest the coefficient for "is male" is any different to zero (when also adjusting for body weight).
+# The above notes imply that the inclusion of "sex" as a predictor is statistically unnecessary when it comes to modeling the response for these data.
+# ii
+names(summary(catsfit))
+summary(catsfit)$r.squared
+# The coefficient of determination, 'R-squared', shows that for your fitted model, 64.5% of the variation in heart weight is able to be captured by the regression.
+summary(catsfit)$fstatistic
+1-pf(129.1056,df1=2,df2=141)
+# Reading from the summary output, or running the line above, the result of the omnibus F-test is a tiny p-value; effectively zero. This suggests very strong evidence against the null hypothesis (H0 is that modeling heart weight isn't improved by taking body weight and sex into account).
+# Question c
+ModelPred<- predict(catsfit,TilmanCat=data.frame(Bwt=3.4,Sex="F"),interval="prediction",level=0.95)
+ModelPred
+# Question d
+plot(cats$Bwt,cats$Hwt,col=cats$Sex,xlab="Body weight (kg)",ylab="Heart weight (g)")
+legend("topleft",legend=c("female","male"),col=c(1,2),pch=c(1,1))
+Bwtseq <- seq(min(cats$Bwt)-0.5,max(cats$Bwt)+0.5,length=30)
+n <- length(Bwtseq)
+catspred <- predict(catsfit,TilmanCat=data.frame(Bwt=rep(Bwtseq,2),Sex=rep(c("M","F"),each=n)))
+lines(Bwtseq,catspred[1:n],col=2) 
+lines(Bwtseq,catspred[(n+1):(2*n)])
+catspred
+# The two superimposed lines are positively sloped according to the coefficient for "Bwt", but extremely close together, mirroring the minimal impact (and lack of statistical significance) of "Sex".
+# Question e
+library("boot")
+?nuclear
+pairs(nuclear)
+# Question f
+Nuclearfit <- lm(cost~t1+t2,data=nuclear)
+summary(Nuclearfit)
+# Question g
+Nuclearfit2 <- lm(cost~t1+t2+date,data=nuclear)
+summary(Nuclearfit2)
+# By including "date" in the linear model, this completely removes the statistical significance of "t1" as seen in the previous model. In fact, the coefficient for "t1" changes signs! What this implies is the previous positive, significant relationship between "t1" and "cost" is actually explained more by "date", owing to the positive correlation of "t1" with "date", and it is "date" that should probably be used in a fitted model. The "t2" predictor remains non-significant, albeit with a reduced p-value in this latest model.
+# Question h
+Nuclearfit3 <- lm(cost~date+cap+ne,data=nuclear)
+summary(Nuclearfit3) # Fitted model is "cost" = -6458 + 95.4*"date of permit issue" + 0.42*"capacity" + 126.1*"constructed in north-east"
+confint(Nuclearfit3) # All intervals exclude null value of zero, reflecting their significance in the model summary.
+# i
+Detroit <- data.frame(Murder=c(8.6,8.9,8.52,8.89,13.07,14.57,21.36,28.03,31.49,37.39,46.26,47.24,52.33),Police=c(260.35,269.8,272.04,272.96,272.51,261.34,268.89,295.99,319.87,341.43,356.59,376.69,390.19),Unemploy=c(11,7,5.2,4.3,3.5,3.2,4.1,3.9,3.6,7.1,8.4,7.7,6.3),Guns=c(178.15,156.41,198.02,222.1,301.92,391.22,665.56,1131.21,837.6,794.9,817.74,583.17,709.59))
+Detroit
+pairs(Detroit)
+# The number of police seems to be the single most telling variable for prediction of murder numbers.
+# Question j
+Murderfit <- lm(Murder~Police+Unemploy+Guns,data=Detroit)
+summary(Murderfit)
+summary(Murderfit)$r.squared
+# "Mean murders" = -68.85 + 0.281*"no. of police" + 0.147*"unemployment" + 0.014*"no. of gun licenses".
+# After adjusting for "no. of gun licenses", and "unemployment", each additional police per 100000 population is related to a mean increase of 0.28 murders per 100000 population.
+# After adjusting for "no. of police", and "unemployment", each additional gun license per 100000 population results in a mean increase of 0.014 murders per 100000 population.
+# After adjusting for "no. of gun licenses", and "no. of police", each additional percentage of unemployment results in a mean increase of 0.147 murders per 100000 population.
+# No, it doesn't make sense to claim that *any* of the relationships are causal, particularly based only one data set and analysis. Causality is extremely difficult to prove in general. In this case, the idea that having a larger police force 'causes' more murders, for example, is rather difficult to justify.
+# Question k
+summary(Murderfit)$r.squared
+# Approx. 97.67% of the variability in mean murder numbers is explained by the three-predictor model (this can also be seen from the model summary).
+Murderfit2 <- lm(Murder~Police+Guns,data=Detroit)
+summary(Murderfit2)
+summary(Murderfit2)$r.squared
+## The coefficient of determination has barely changed from before; approx. 97.63% of the variability in mean murder numbers is now explained by the two-predictor model. Removing the unemployment predictor variable has had little discernable impact on the model's ability to explain the variation in the murder numbers. This mirrors the non-significant nature of "unemployment rate" when it is included in the model---non-significance implies there is no evidence to suggest varying the unemployment rate will change the mean response.
+# Question l
+MurderPred<- predict(Murderfit2,newdata=data.frame(Police=c(300,300),Guns=c(500,0)),interval="confidence",level=0.99)
+MurderPred
+
+```
+
+#Exercise 21.2
+```{r}
+## 21.2
+
+# Question a
+GalBall <- data.frame(d=c(573,534,495,451,395,337,253),h=c(1,0.8,0.6,0.45,0.3,0.2,0.1))
+GalBall
+plot(GalBall$d~GalBall$h,pch=19,xlab="Initial height",ylab="Distance traveled", main="Galileo's Ball experiment")
+# Question b
+# i
+Galfit_order2 <- lm(d~h+I(h^2),data=GalBall)
+Galfit_order2
+summary(Galfit_order2)
+# ii
+Galfit_order3 <- lm(d~h+I(h^2)+I(h^3),data=GalBall)
+Galfit_order3
+summary(Galfit_order3)
+Galfit_order4 <- lm(d~h+I(h^2)+I(h^3)+I(h^4),data=GalBall)
+Galfit_order4
+summary(Galfit_order4)
+# These models reveal that the order 3 model is significant in it's highest-order term, and the fit is improved in terms of the coefficient of determination. The same cannot be said for the order 4 model. 
+# Question c
+# out of the three fitted models, the cubic function in height seems preferable -- because, the relationship between "distance traveled" and "initial height" therefore appears cubic -- the quadratic model seems too simple, and the quartic model seems uneccessarily complex.
+Hseq <- seq(0.05,1.05,length=30)
+Hseq
+Galpred <- predict(Galfit_order3,newdata=data.frame(h=Hseq),interval="confidence",level=0.9)
+Galpred
+lines(Hseq,Galpred[,1])
+lines(Hseq,Galpred[,2],lty=2)
+lines(Hseq,Galpred[,3],lty=2)
+# Question d
+library("faraway")
+?trees
+plot(trees$Volume~trees$Girth,pch=19,xlab="Girth",ylab="Volume")
+# Question e
+tree_fit1 <- lm(Volume~Girth+I(Girth^2),trees)
+tree_fit1
+summary(tree_fit1) ## "Mean volume" = 10.79 - 2.09*"girth" + 0.254*"girth^2"
+tree_fit2 <- lm(log(Volume)~log(Girth),trees)
+tree_fit2
+summary(tree_fit2) ## "Mean log(volume)" = -2.35 + 2.20*"log(girth)"
+# Coefficients of determination are similar; the quadratic model is slightly higher. Both indicate a statistically significant positive effect of girth on volume. Based on the F-test, both models are clearly better than fitting an intercept alone (i.e. girth does appear to be able to explain (mean) volume very well).
+# Question f
+ 
+# The fitted values of the models themselves are extremely similar. However, the prediction intervals tell a different story. Notably, the quadratic model has far wider limits for small girth values than for larger ones. On the other hand, the limits for the logged model are substantially wider than those of the quadratic model at larger girth values. Which model is 'better'...? It's very difficult to answer that without further information...
+# Question g
+library("MASS")
+car_fit <- lm(mpg~wt+hp+disp,data=mtcars)
+summary(car_fit)
+# Question h
+car_fit <- lm(I(1/mpg)~wt+hp+disp,data=mtcars)
+summary(car_fit)
+# Both fits to the mtcars data here provide similar levels of significance for the three predictors; though there is a mild yet noticeable improvement in the coefficient of determination for the latter model based on a response of GPM = 1/MPG.
+```
+
+#Exercise 21.3
+```{r}
+## 21.3 
+library("MASS")
+# Question a
+cat_fit <- lm(Hwt~Bwt*Sex,data=cats)
+summary(cat_fit)
+# The main-effects-only version of the model had a mild negative effect of "sex male", and it was not significant. In this version, the effect of being male is more extreme, and the p-value is far smaller, now providing weak evidence of significance. The interactive term for the slope of 'Bwt' for a male is reduced somewhat compared to females (estimated parameter is negative).
+# Question b
+plot(cats$Bwt,cats$Hwt,col=cats$Sex,ylab="Heart weight (g)",xlab="Body weight (kg)")
+legend("topleft",legend=c("Female","Male"),col=1:2,pch=1)
+cat_coefs <- coef(cat_fit)
+abline(coef=cat_coefs[1:2])
+abline(coef=c(sum(cat_coefs[c(1,3)]),sum(cat_coefs[c(2,4)])),col=2)
+# Lines of the fitted model are no longer parallel; the effect of the weakly significant interaction is apparent.
+# Question c
+predict(cat_fit,newdata=data.frame(Bwt=3.4,Sex="F"),interval="prediction",level=0.95)
+# Sigma's heart weight predicted from the new model is around 1.5 grams lighter than predicted from the main-effects-only model in the earlier exercise. The prediction interval is set accordingly lower as well, but is also wider than the interval from earlier.
+# Question d
+library("faraway")
+tree_fit1 <- lm(Volume~Girth+Height,data=trees)
+summary(tree_fit1)
+tree_fit2 <- lm(Volume~Girth*Height,data=trees)
+summary(tree_fit2)
+# Question e
+tree_fit3 <- lm(log(Volume)~log(Girth)+log(Height),data=trees)
+summary(tree_fit3)
+tree_fit4 <- lm(log(Volume)~log(Girth)*log(Height),data=trees)
+summary(tree_fit4)
+# The interactive effect is highly significant in the untransformed model from (d), but completely non-significant after log-transformation of all present variables. This suggests that 'straight-line' relationships are not the best way to model these data (you can experiment with plots if you wish), and that we must account for curvature in the response surface by either working with transformed data or including the two-way interaction between the two untransformed continuous predictors. Once more, it is difficult to decide on which approach ought to be preferred -- we need to know more about the nature of the data themselves in context, as well as the ultimate purpose of the fitted model.
+# Question f
+car_fit <- lm(mpg~factor(cyl)*hp+wt,data=mtcars)
+summary(car_fit)
+# Question g
+coef(car_fit)
+# The interactive effect is between a continuous (hp) and a categorical (factor(cyl)) predictor. As such, each of the two estimated coefficents can be interpreted as the change in the slope of hp for each of the non-reference levels of factor(cyl).
+coef(car_fit)[4] # When the car has 4 cylinders (reference level), the slope for hp is -0.0995 (to 4 decimal places)
+coef(car_fit)[4] + coef(car_fit)[6] # When the car has 6 cylinders, the slope for hp is -0.0995 + 0.0781 = -0.0214 (to 4 decimal places)
+coef(car_fit)[4] + coef(car_fit)[7] # When the car has 8 cylinders, the slope for hp is -0.0995 + 0.0860 = -0.0135 (to 4 decimal places)
+# This model suggests that as hp increases, mean MPG decreases (for a fixed wt). However, in comparison to 4-cylinder cars, mean MPG is estimated to decrease at a slower rate with an increasing hp for both 6- and 8-cylinder cars (since the positive additive terms to the baseline slope of -0.0995 still provide negative slopes in hp, but ones that are closer to zero).
+# Question h
+# i
+predict(car_fit,newdata=data.frame(wt=c(2.1,3.9,2.9),hp=c(100,210,200),cyl=c(4,8,6)),interval="confidence",level=0.95)
+# The first car is the only car that has a point estimate of mean MPG that is higher than your mother's demand of 25, so this would be the initial choice.
+# ii
+# Although the point estimate for Car 3 is much less than 25, looking at the confidence intervals you can see that the interval for Car 3 includes 25. So, you could argue to your mother that you're 95% confident that the true mean MPG of a car like Car 3 lies somewhere in that interval; in particular, your model suggests no evidence against the hypothesis that the true mean MPG of such a car is equal to 25. Of course, the interval also includes possible true values that are far worse than 25... but you don't need to tell your mother that.
+```
