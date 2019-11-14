@@ -1,0 +1,68 @@
+---
+title: "ClassworkScatterMatrix"
+author: "Alex"
+date: "31/10/2019"
+output: html_document
+---
+
+```{r }
+
+#1. Collect data related to country spending on healthcare over time
+Healthcare.Rec<- read.csv(file="healthcare.csv", header=TRUE, sep=",", stringsAsFactors=FALSE)
+Healthcare.Rec
+
+#2. Collect data related to life expectancy over time
+LifeExp.Rec<- read.csv(file="Life-Expectancies.csv", header=TRUE, sep=",",stringsAsFactors=FALSE)
+LifeExp.Rec
+
+#3. Collect data related to obesity rates over time
+Obesity<- read.csv(file="obesity.csv", header=TRUE, sep=",",stringsAsFactors=FALSE)
+Obesity
+
+#4. Create a scatterplot matrix for each of the variables (3x3)
+Healthcare.Val <- Healthcare.Rec[,c('Value')]
+Obesity.Rec<-Obesity[,c('Values')]
+LifeExp.L<-LifeExp.Rec[,c('Value')]
+  #plot the Scatterplot matrix
+pairs(~Healthcare.Val+LifeExp.L+Obesity.Rec, main = "Scatterplot Matrix\n of global Healthcare,Obesity & Life-expectancy Record")
+
+#5. Create a plot comparing spending and life expectancy *for each country individually
+#HC<- c(Healthcare.Rec)
+#OB<- c(Obesity.Rec)
+#LE<- c(LifeExp.Rec)
+#Cntry<- HC[HC$Country,]&
+
+#Get all countries and year record from datasets
+  cntry <- Healthcare.Rec[,c('Country')]
+  year<-Healthcare.Rec[,c('Year')]
+  
+  #Combine country, year, spending and life expectancy into a dataframe
+  Combo<-data.frame(country=cntry,Year=year,healths=Healthcare.Val, lexpect=LifeExp.L)
+  
+  #Create function to plot spending vs life expectancy for each country
+    Life.spend.country <- function( countryname) {
+      #filter data from data according to the country name passed in the function argument
+      countryframe <- Combo[Combo$country== countryname,]
+      for(i in countryframe){ 
+        print("Country"[i])
+        }
+      country_lifex<-countryframe$lexpect
+      country_spending<- countryframe$healths
+      #create a plot from the variables
+      plot(x=country_lifex, y=country_spending, xlab='Life expectancy', ylab='Health spend', main       = sprintf("Spending Vs Life expectancy in %s", countryname) )
+    }#End of Function
+    
+    #Select unique occurence of country in merged data frame
+    uniquecountry<-Combo[Combo$Year=="2000",]
+    #Save all country name into a variable
+    allcountry<- uniquecountry$country
+    
+    #Loop through all country names
+    for(i in allcountry) {
+      countryName<- allcountry[i] #Save name in a variable
+      
+      Life.spend.country(countryName) #call function with country name as argument
+    }
+
+
+```
