@@ -1,0 +1,364 @@
+---
+title: "Assignment Exercise 25-26"
+author: "Alex"
+date: "12/11/2019"
+output: html_document
+---
+#Chapter 25 Exercise 25.1
+```{r }
+library("car")
+# Question a
+colsP1 <- colorRampPalette(c("black","red","yellow2"))
+colsP1
+colsP2 <- colorRamp(c("black","red","yellow2"))
+colsP2
+# Question b
+data("Salaries")
+# i
+ranks <- c(19,17,15)[as.numeric(Salaries$rank)]
+ranks
+# ii
+sexs <- c(1,1.5)[as.numeric(Salaries$sex)]
+sexs
+# Question c
+normalize <- function(datavec){
+  lo <- min(datavec,na.rm=TRUE)
+  up <- max(datavec,na.rm=TRUE)
+  datanorm <- (datavec-lo)/(up-lo)
+  return(datanorm)
+}
+phd.norm <- normalize(Salaries$yrs.since.phd)
+phd.cols <- rgb(cols2(phd.norm),maxColorValue=255)
+# Question d
+phd.cols[Salaries$sex=="Female"] <- adjustcolor(phd.cols[Salaries$sex=="Female"],alpha=0.9)
+phd.cols[Salaries$sex=="Male"] <- adjustcolor(phd.cols[Salaries$sex=="Male"],alpha=0.3)
+# Question e
+par(mar=c(5,4,4,6))
+plot(Salaries$salary~Salaries$yrs.service,col=phd.cols,pch=ranks,cex=sexs,xlab="Years of service",ylab="Salary")
+# Question f
+legend(-5,265000,legend=levels(Salaries$rank),title="Rank",pch=c(19,17,15),xpd=TRUE,horiz=TRUE)
+legend(40,265000,legend=levels(Salaries$sex),title="Sex",pch=c(19,19),pt.cex=c(1,1.5),col=c(adjustcolor("red",0.9),adjustcolor("red",0.3)),xpd=TRUE,horiz=T)
+# Question g
+library("shape")
+colorlegend(col=cols1(50),zlim=range(Salaries$yrs.since.phd),zval=seq(10,50,10),main="Years since\nPhD")
+# Question h
+tcols <- terrain.colors(25)
+fillcols <- c(tcols,tcols[25:1])
+# i
+nvals <- 51
+vals <- seq(-3,3,length=nvals)
+normvals <- dnorm(vals)
+# j
+plot(vals,normvals,type="l",xaxs="i",yaxs="i",xlab="",ylab="",bty="L",xaxt="n",main="N(0,1) density")
+# Question k
+for(i in 1:(nvals-1)){
+  polygon(x=rep(vals[c(i,i+1)],each=2),y=c(0,normvals[c(i,i+1)],0),border=NA,col=fillcols[i])
+}
+# Question l
+library("shape")
+colorlegend(fillcols,zlim=range(vals),zval=-3:3,main="SD from mean")
+
+```
+
+## Excercise 25.2 
+```{r}
+library("scatterplot3d")
+# Question a
+library("faraway")
+scatterplot3d(x=diabetes$hip,y=diabetes$waist,z=diabetes$weight,highlight.3d=TRUE,pch=c(1,2)[as.numeric(diabetes$gender)],xlab="Hip",ylab="Waist",zlab="Weight")
+legend("topleft",legend=levels(diabetes$gender),pch=1:2)
+# Question b
+data("airquality")
+aq <- na.omit(airquality)
+ozcols <- topo.colors(50)
+colindex <- cut(aq$Ozone,breaks=seq(min(aq$Ozone),max(aq$Ozone),length=51),include.lowest=TRUE)
+scatterplot3d(x=aq$Wind,y=aq$Solar.R,z=aq$Temp,type="h",lty.hplot=3,color=ozcols[colindex],pch=aq$Month-4,main="NY Air Quality",xlab="Wind (MPH)",ylab=expression(paste("Solar Radiation (",ring(A),")")),zlab="Temperature (F)")
+legend(locator(1),legend=c("May","June","July","August","September"),pch=1:5,title="Month",xpd=TRUE)
+library("shape")
+colorlegend(ozcols,zlim=range(aq$Ozone),main="Ozone",zval=seq(0,160,40),posx=c(0.1,0.13),posy=c(0.7,0.9))
+
+```
+## Exercise25.3 
+```{r}
+library("boot")
+data("nuclear")
+?nuclear
+# Question a
+# i
+nuc.fit1 <- lm(cost~cap+date,data=nuclear)
+summary(nuc.fit1)
+# ii
+nuc.fit2 <- lm(cost~cap*date,data=nuclear)
+summary(nuc.fit2)
+#(b)
+capseq <- seq(min(nuclear$cap),max(nuclear$cap),length=50)
+datseq <- seq(min(nuclear$date),max(nuclear$date),length=50)
+capdat <- expand.grid(cap=capseq,date=datseq)
+nuc.pred1 <- matrix(predict(nuc.fit1,newdata=capdat),50,50)
+nuc.pred2 <- matrix(predict(nuc.fit2,newdata=capdat),50,50)
+# Question c
+par(mfrow=c(1,2))
+contour(x=capseq,y=datseq,z=nuc.pred1)
+contour(x=capseq,y=datseq,z=nuc.pred2)
+# The two response surfaces appear extremely similar, with only a slight curvature appearing in the surface associated with the interactive model. This similarity is to be expected based on the model summaries from (a), which don't provide any evidence supporting the need to include the interaction.
+# Question d
+filled.contour(x=capseq,y=datseq,z=nuc.pred1,xlab="Capacity",ylab="Permit date",color.palette=topo.colors,plot.axes={axis(1);axis(2);contour(capseq,datseq,nuc.pred2,add=TRUE,lwd=2,lty=2)})
+text(locator(1),label=c("Color fill: Main effects only.\nLines: Interaction included."),xpd=NA)
+# Question e
+data("faithful")
+?faithful
+plot(faithful$eruptions~faithful$waiting,xlab="Waiting time",ylab="Eruption duration",main="Old Faithful Geyser")
+# Question f
+library("MASS")
+faith.dens <- kde2d(x=faithful$waiting,y=faithful$eruptions,n=100)
+contour(faith.dens$x,faith.dens$y,faith.dens$z)
+# Question g
+faith.cols <- colorRampPalette(c("darkblue","hotpink"))
+filled.contour(faith.dens$x,faith.dens$y,faith.dens$z,color.palette=faith.cols,xlab="Waiting time",ylab="Eruption duration",plot.axes={axis(1);axis(2);points(faithful$waiting,faithful$eruption,cex=0.5,col="gray")})
+# Question h
+plot(faithful$eruptions~faithful$waiting,col="gray",pch=2,cex=0.75,xaxs="i",yaxs="i",xlab="Waiting time",ylab="Eruption duration",main="Old Faithful Geyser")
+contour(faith.dens$x,faith.dens$y,faith.dens$z,levels=seq(0.002,0.014,0.004),col="red4",add=TRUE,drawlabels=FALSE,lwd=1:4)
+legend("topleft",legend=seq(0.002,0.014,0.004),lwd=1:4,col="red4",title="Kernel estimate")
+```
+
+## Exercise 25.4 
+```{r}
+data("airquality")
+aq <- na.omit(airquality[,c("Temp","Wind","Ozone")])
+# Question a
+aq.fit <- lm(Temp~Wind*Ozone,aq)
+summary(aq.fit)
+# Question b
+res <- 50
+winseq <- seq(min(aq$Wind),max(aq$Wind),length=res)
+ozoseq <- seq(min(aq$Ozone),max(aq$Ozone),length=res)
+winozo <- expand.grid(Wind=winseq,Ozone=ozoseq)
+aq.pred <- matrix(predict(aq.fit,newdata=winozo),res,res)
+# Question c
+normalize <- function(datavec){
+  lo <- min(datavec,na.rm=TRUE)
+  up <- max(datavec,na.rm=TRUE)
+  datanorm <- (datavec-lo)/(up-lo)
+  return(datanorm)
+}
+library("shape")
+par(mar=c(5,4,4,6))
+image(x=winseq,y=ozoseq,z=aq.pred,col=topo.colors(20),xlab="Wind",ylab="Ozone")
+points(aq$Wind,aq$Ozone,col=gray(normalize(aq$Temp)),pch=19)
+colorlegend(col=topo.colors(20),zlim=range(aq.pred),zval=seq(60,140,10),posx=c(0.88,0.91),main="Pred. temp")
+colorlegend(col=gray.colors(10,start=0,end=1),zlim=range(aq$Temp),zval=seq(60,95,5),posx=c(0.67,0.7),posy=c(0.4,0.8),main="Obs. temp")
+# Question d
+library("spatstat")
+?clmfires
+fire <- split(clmfires)$intentional
+firewin <- clmfires$window
+firewin.xr <- firewin$xrange
+firewin.yr <- firewin$yrange
+fire.dens <- kde2d(x=fire$x,fire$y,n=256,lims=c(firewin.xr,firewin.yr))
+# Question e
+fire.xy <- expand.grid(fire.dens$x,fire.dens$y)
+fire.outside <- !inside.owin(x=fire.xy[,1],y=fire.xy[,2],w=firewin)
+fire.dens$z[fire.outside] <- NA
+#(f)
+library("shape")
+par(mar=c(3,3,3,7))
+image(fire.dens$x,fire.dens$y,fire.dens$z,col=heat.colors(50),asp=1,bty="l",ann=FALSE)
+plot(firewin,lwd=2,add=TRUE)
+colorlegend(col=heat.colors(50),posx=c(0.83,0.86),zlim=range(fire.dens$z,na.rm=TRUE),zval=seq(5e-6,35e-6,5e-6),digit=6)
+```
+
+## Exercise 25.5 
+```{r}
+
+library("boot")
+# Question a
+nuc.fit1 <- lm(cost~cap+date,data=nuclear)
+nuc.fit2 <- lm(cost~cap*date,data=nuclear)
+capseq <- seq(min(nuclear$cap),max(nuclear$cap),length=50)
+datseq <- seq(min(nuclear$date),max(nuclear$date),length=50)
+capdat <- expand.grid(cap=capseq,date=datseq)
+nuc.pred1 <- matrix(predict(nuc.fit1,newdata=capdat),50,50)
+nuc.pred2 <- matrix(predict(nuc.fit2,newdata=capdat),50,50)
+par(mfrow=c(2,1),mar=rep(1,4))
+persp(x=capseq,y=datseq,z=nuc.pred1,theta=25,zlim=range(c(nuc.pred1,nuc.pred2)),ticktype="detailed",xlab="Capacity",ylab="Permit issue date",zlab="Predicted cost")
+persp(x=capseq,y=datseq,z=nuc.pred2,theta=25,zlim=range(c(nuc.pred1,nuc.pred2)),ticktype="detailed",xlab="Capacity",ylab="Permit issue date",zlab="Predicted cost")
+# As expected based on earlier results, there's barely any visual differences between the two surfaces. Inclusion of the interaction term, as evidenced by extremely large p-values, has no tangible effect on modeling the response.
+# Question b
+par(mfrow=c(1,1),mar=rep(1,4)) #(reset to default)
+persp(x=capseq,y=datseq,z=nuc.pred2-nuc.pred1,theta=75,ticktype="detailed")
+# The main impact of including the interaction term seems to be a discrepancy (when compared with the main-effect-only model) at the later dates (approx. 1970-71) as you increase plant capacity.
+# Question c
+vr <- nrow(volcano)
+vc <- ncol(volcano)
+persp(x=1:vr,y=1:vc,z=volcano)
+# Question d
+dev.new()
+par(mar=c(1,1,1,5))
+vm <- (volcano[-1,-1]+volcano[-1,-vc]+volcano[-vr,-1]+volcano[-vr,-vc])/4
+tcols <- terrain.colors(50)
+volcol <- tcols[cut(vm,breaks=seq(min(volcano),max(volcano),length=51),include.lowest=TRUE)]
+persp(1:vr,1:vc,volcano,col=volcol,border=NA,theta=-30,phi=15,scale=FALSE,expand=0.1,axes=FALSE)
+library("shape")
+colorlegend(tcols,zlim=range(volcano),zval=seq(100,180,20),posx=c(0.83,0.86),posy=c(0.4,0.7),main="Elevation (m)")
+# Question e
+library("spatstat")
+library("MASS")
+fire <- split(clmfires)$intentional
+firewin <- clmfires$window
+firewin.xr <- firewin$xrange
+firewin.yr <- firewin$yrange
+fire.dens <- kde2d(x=fire$x,fire$y,n=256,lims=c(firewin.xr,firewin.yr))
+fire.xy <- expand.grid(fire.dens$x,fire.dens$y)
+fire.outside <- !inside.owin(x=fire.xy[,1],y=fire.xy[,2],w=firewin)
+fire.dens$z[fire.outside] <- NA
+fm <- (fire.dens$z[-1,-1]+fire.dens$z[-1,-256]+fire.dens$z[-256,-1]+fire.dens$z[-256,-256])/4
+hcols <- heat.colors(50)
+firecols <- hcols[cut(fm,breaks=seq(min(fm,na.rm=TRUE),max(fm,na.rm=TRUE),length=51),include.lowest=TRUE)]
+persp(fire.dens$x,fire.dens$y,fire.dens$z,col=firecols,theta=10,phi=30,border=NA,scale=FALSE,expand=5e+6,ticktype="detailed",xlab="X",ylab="Y",zlab="Z")
+# Question f
+persprot <- function(...,skip=1){
+  for(i in seq(90,20,by=-skip)){
+    persp(phi=i,theta=0,...)
+  }
+  for(i in seq(0,360,by=skip)){
+    persp(phi=20,theta=i,...)
+  }
+}
+persprot(skip=10,fire.dens$x,fire.dens$y,fire.dens$z,col=firecols,border=NA,scale=FALSE,expand=5e+6,ticktype="detailed",xlab="X",ylab="Y",zlab="Z")
+```
+## Exercise Exercise 26.1 
+```{r}
+library("rgl")
+library("MASS")
+# Question a
+surv <- na.omit(survey[,c("Wr.Hnd","NW.Hnd","W.Hnd","Sex","Height")])
+wrh <- surv$Wr.Hnd
+nwh <- surv$NW.Hnd
+wh <- surv$W.Hnd
+hei <- surv$Height
+sex <- surv$Sex
+plot3d(x=wrh,y=nwh,z=hei)
+# Question b
+plot3d(x=wrh[wh=="Right"],y=nwh[wh=="Right"],z=hei[wh=="Right"],col=c("black","red")[as.numeric(sex[wh=="Right"])],size=4,xlab="Writing hand",ylab="Non-writing hand",zlab="Height")
+points3d(x=wrh[wh=="Left"],y=nwh[wh=="Left"],z=hei[wh=="Left"],col=c("black","red")[as.numeric(sex[wh=="Left"])],size=10)
+legend3d("topleft",legend=c("Male LH","Female RH","Male LH","Female LH"),pch=19,pt.cex=c(0.8,0.8,1.5,1.5),col=c("black","red","black","red"))
+# Question c
+aq <- na.omit(airquality)
+ozcols <- topo.colors(50)
+colindex <- cut(aq$Ozone,breaks=seq(min(aq$Ozone),max(aq$Ozone),length=51),include.lowest=TRUE)
+plot3d(aq$Wind,aq$Solar.R,aq$Temp,type="s",col=ozcols[colindex],size=1,aspect=c(1,1.5,1),xlab="Wind",ylab="Solar radiation",zlab="Temperature")
+xfromto <- rep(aq$Wind,each=2)
+yfromto <- rep(aq$Solar.R,each=2)
+zfromto <- rep(min(aq$Temp),times=2*nrow(aq))
+zfromto[seq(2,length(zfromto),2)] <- aq$Temp
+segments3d(x=xfromto,y=yfromto,z=zfromto,col=rep(ozcols[colindex],each=2))
+grid3d(side="z-")
+library("shape")
+bgplot3d({plot.new();colorlegend(ozcols,zlim=range(aq$Temp),zval=seq(60,95,5),posx=c(0.91,0.93),posy=c(0.1,0.9))})
+```
+
+##Exercise 26.2
+```{r}
+library("rgl")
+# Question a
+aq <- na.omit(airquality[,c("Temp","Wind","Ozone","Month")])
+aq.fit <- lm(Temp~Wind*Ozone,aq)
+summary(aq.fit)
+res <- 50
+winseq <- seq(min(aq$Wind),max(aq$Wind),length=res)
+ozoseq <- seq(min(aq$Ozone),max(aq$Ozone),length=res)
+winozo <- expand.grid(Wind=winseq,Ozone=ozoseq)
+aq.pred <- predict(aq.fit,newdata=winozo,interval="confidence",level=0.95)
+aq.zmat <- matrix(aq.pred[,1],res,res)
+persp3d(x=winseq,y=ozoseq,z=aq.zmat,col="yellow")
+# Question b
+tcols <- topo.colors(50)
+persp3d(x=winseq,y=ozoseq,z=aq.zmat,col=tcols[cut(aq.pred,breaks=seq(min(aq.pred),max(aq.pred),length=51),include.lowest=TRUE)],alpha=0.8,xlab="Wind",ylab="Ozone",zlab="Temp.")
+# Question c
+# i
+reds <- colorRampPalette(c("red4","pink"))
+rcols <- reds(5)
+points3d(aq$Wind,aq$Ozone,aq$Temp,col=rcols[aq$Month-4],size=10)
+# ii
+xfromto <- rep(aq$Wind,each=2)
+yfromto <- rep(aq$Ozone,each=2)
+zfromto <- rep(aq.fit$fitted.values,each=2)
+zfromto[seq(2,2*nrow(aq),2)] <- aq$Temp
+segments3d(x=xfromto,y=yfromto,z=zfromto,col=rep(rcols[aq$Month-4],each=2))
+# iii
+persp3d(x=winseq,y=ozoseq,z=matrix(aq.pred[,2],res,res),col="gray",alpha=0.5,add=TRUE)
+persp3d(x=winseq,y=ozoseq,z=matrix(aq.pred[,3],res,res),col="gray",alpha=0.5,add=TRUE)
+# iv
+legend3d("topright",legend=c("May","June","July","August","September"),pch=19,cex=2,col=rcols)
+# Question d
+library("spatstat")
+library("MASS")
+fire <- split(clmfires)$intentional
+firewin <- clmfires$window
+firewin.xr <- firewin$xrange
+firewin.yr <- firewin$yrange
+fire.dens <- kde2d(x=fire$x,fire$y,n=256,lims=c(firewin.xr,firewin.yr))
+fire.xy <- expand.grid(fire.dens$x,fire.dens$y)
+fire.outside <- !inside.owin(x=fire.xy[,1],y=fire.xy[,2],w=firewin)
+fire.dens$z[fire.outside] <- NA
+hcols <- heat.colors(50)
+firecols <- hcols[cut(fire.dens$z,breaks=seq(min(fire.dens$z,na.rm=TRUE),max(fire.dens$z,na.rm=TRUE),length=51),include.lowest=TRUE)]
+xr <- firewin$xrange[2]-firewin$xrange[1]
+yr <- firewin$yrange[2]-firewin$yrange[1]
+persp3d(x=fire.dens$x,y=fire.dens$y,z=fire.dens$z,col=firecols,aspect=c(xr/yr,1,0.6),alpha=0.7,xlab="X",ylab="Y",zlab="")
+# Question e
+# i
+points3d(x=fire$x,y=fire$y,z=min(fire.dens$z,na.rm=TRUE))
+# ii
+firepoly <- vertices(firewin)
+fwx <- firepoly$x
+fwy <- firepoly$y
+lines3d(x=fwx,y=fwy,z=min(fire.dens$z,na.rm=TRUE),lwd=2)
+```
+
+## Exercise 26.3 
+```{r}
+library("mvtnorm")
+library("rgl")
+library("misc3d")
+library("ks")
+covmat <- matrix(c(1,0.8,0.4,0.8,1,0.6,0.4,0.6,1),3,3)
+rand3d.norm <- rmvnorm(1000,mean=c(0,0,0),sigma=covmat)
+# Question a
+plot3d(rand3d.norm,xlab="x",ylab="y",zlab="z")
+# Question b
+vals <- seq(-3,3,length=50)
+xyz <- expand.grid(vals,vals,vals)
+w <- array(dmvnorm(xyz,mean=c(0,0,0),sigma=covmat),c(50,50,50))
+max3d.norm <- dmvnorm(c(0,0,0),mean=c(0,0,0),sigma=covmat)
+contour3d(x=vals,y=vals,z=vals,f=w,level=c(0.1,0.5,0.9)*max3d.norm,color=c("yellow","seagreen4","navyblue"),alpha=c(0.2,0.4,0.6),add=TRUE)
+# Question c
+kde3d.norm <- kde(rand3d.norm,compute.cont=TRUE)
+plot3d(rand3d.norm,xlab="x",ylab="y",zlab="z")
+# i
+contour3d(x=vals,y=vals,z=vals,f=w,level=0.5*max3d.norm,color="seagreen4",alpha=0.4,add=TRUE)
+# ii
+contour3d(x=kde3d.norm$eval.points[[1]],y=kde3d.norm$eval.points[[2]],z=kde3d.norm$eval.points[[3]],f=kde3d.norm$estimate,level=kde3d.norm$cont[50],color="red",alpha=0.2,add=TRUE)
+# Question d
+library("MASS")
+?Boston
+bos <- Boston[,c("rm","lstat","medv")]
+# i
+plot3d(bos,col="gray",type="s",size=0.5,xlab="Avg. rooms",ylab="Lower status %",zlab="Median value")
+# ii
+bos.dens <- kde(bos,gridsize=c(64,64,64),compute.cont=TRUE)
+contour3d(x=bos.dens$eval.points[[1]],y=bos.dens$eval.points[[2]],z=bos.dens$eval.points[[3]],f=bos.dens$estimate,level=bos.dens$cont[c(75,50,10)],color=c("green","yellow","blue"),alpha=c(0.1,0.4,0.5),add=TRUE)
+# iii
+grid3d(side=c("z-","x+","y+"))
+# Question e
+# The most common houses tend to have an average of around 6 rooms, are associated with lower-status areas of around 5 to 15%, and have median values of around $20,000 to $30,000. There seems to be an additional pocket of observations that represent relatively high-value suburb homes with a large average number of rooms in areas with a very small lower-status percentage.
+# Question f
+vals <- seq(-pi,pi,length=1000)
+theta.phi <- expand.grid(vals,vals)
+xv <- outer(vals,vals,function(theta,phi) sin(theta)*(7+cos(theta/3-2*phi)+2*cos(theta/3+phi)))
+yv <- outer(vals,vals,function(theta,phi) cos(theta)*(7+cos(theta/3-2*phi)+2*cos(theta/3+phi)))
+zv <- outer(vals,vals,function(theta,phi) sin(theta/3-2*phi)+2*sin(theta/3+phi))
+persp3d(x=xv,y=yv,z=zv,col=rainbow(1000),axes=FALSE,xlab="",ylab="",zlab="")
+
+```
+
